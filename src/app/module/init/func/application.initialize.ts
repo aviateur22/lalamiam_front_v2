@@ -1,5 +1,5 @@
-import { InitAppService } from "../services/init-app.service";
+import { AppParamService } from "../services/app-param.service";
 
-export function applicationInitialize(initAppService: InitAppService) {
-  return ()=> initAppService.appInit();
+export function applicationInitialize(initAppService: AppParamService) {
+  return ()=>initAppService.appInit();;
 }

@@ -3,22 +3,20 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import frontendUrl from 'src/misc/frontend.url';
 import pageTitle from 'src/misc/page-title';
+import { titleResolver } from './services/title.resolver';
 import { environment } from 'src/environments/environment';
-import { NotFoundPageComponent } from './guard/pages/not-found-page/not-found-page.component';
-import { ErrorPageComponent } from './guard/pages/error-page/error-page.component';
+import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
+import { ErrorPageComponent } from './pages/error-page/error-page.component';
+import { HomePageComponent } from './pages/home-page/home-page.component';
+
+
 
 const routes: Routes = [
-  {
-    path: environment.webapp_path,
-    children: [
-//      { path: frontendUrl.home.url, component: HomePageComponent, title: pageTitle.homePageTitle[environment.language]},
-      { path: frontendUrl.error.url, component: ErrorPageComponent, title: pageTitle.errorPageTitle[environment.language]},
-  //    { path: frontendUrl.userHome.url, component: UserPageComponent, title: pageTitle.userHomePageTitle[environment.language]},
-      { path: frontendUrl.notFound.url, component: NotFoundPageComponent, title: pageTitle.notFoundPageTitle[environment.language]}
-    ]
-},
-{ path: '', redirectTo: `${environment.webapp_path}/${frontendUrl.home.url}`, pathMatch: 'full'},
-{ path: "**", redirectTo:`${environment.webapp_path}/${frontendUrl.notFound.url}`, pathMatch: "full"}
+    { path: frontendUrl.home.url, component: HomePageComponent, resolve:{ title: titleResolver}},
+    { path: frontendUrl.error.url, component: ErrorPageComponent, resolve: { title: titleResolver}},
+    { path: frontendUrl.notFound.url, component: NotFoundPageComponent, resolve: { title: titleResolver}},
+    { path: '', redirectTo: `${frontendUrl.home.url}`, pathMatch: 'full'},
+    { path: "**", redirectTo:`${frontendUrl.notFound.url}`, pathMatch: 'full'}
 
 ];
 
@@ -26,4 +24,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

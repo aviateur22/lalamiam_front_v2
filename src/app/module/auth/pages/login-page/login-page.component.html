@@ -1,1 +1,36 @@
-<p>login-page works!</p>
+<div>
+  <div>
+    <div>
+      <h2>{{properties.loginTitle}}</h2>
+    </div>
+    <section>
+      <form action="" [formGroup]="loginFG" (submit)="login()">
+        <div>
+          <label for="email">{{properties.loginEmail}}</label>
+          <input id="email" formControlName="email"  type="email">
+          <!--Message erreur-->
+          <div *ngIf="loginFG.get('email')?.touched && loginFG.get('email')?.errors?.['required']">
+            <p-message class="p-message" severity="error" [text]="properties.loginEmailError" ></p-message>
+          </div>
+        </div>
+        <div>
+          <label for="password">{{properties.loginPassword}}</label>
+          <input id="password" formControlName="password"  type="password">
+          <!--Message erreur-->
+          <div *ngIf="loginFG.get('password')?.touched && loginFG.get('password')?.errors?.['required']">
+            <p-message class="p-message" severity="error" [text]="properties.loginPasswordError" ></p-message>
+          </div>
+        </div>
+        <!-- Lien perte mot de passe-->
+        <a class="text-sm" [routerLink]=resetPasswordLink>{{properties.loginLostPasswordRedirection}}</a>
+        <div>
+          <input [disabled]="" type="submit" [value]="properties.loginButton">
+        </div>
+      </form>
+    </section>
+    <section>
+      <!--Lien inscription-->
+      <a class="text-sm" [routerLink]=registerLink>{{properties.loginRegisterRedirection}}</a>
+    </section>
+  </div>
+</div>

@@ -1,6 +1,6 @@
 export default {
   home: {
-    url: 'home'
+    url: ''
   },
   notFound: {
     url: 'not-found'
@@ -15,6 +15,9 @@ export default {
     url: 'auth/login'
   },
   register: {
+    url: 'auth/create-account'
+  },
+  registerConfirmation: {
     url: 'auth/create-account/user/:user/confirmation/:confirmation'
   },
   accountActivation: {

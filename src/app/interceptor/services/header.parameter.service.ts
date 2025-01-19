@@ -5,17 +5,22 @@ import { LogUtility } from "src/utils/log.utility";
 import { Injectable } from "@angular/core";
 import { environment } from "src/environments/environment";
 
+/**
+ * Mise à jour des headers a envoyer à l'API en fonction du API path
+ */
 @Injectable({
   providedIn: "root"
 })
 export class HeaderParameterService {
 
   set(request: HttpRequest<unknown>): HttpRequest<unknown> {
+    LogUtility.log(HeaderParameterService.name, `backendPath ${request.url}`)
     switch(request.url) {
       case environment.api_base + backendUrl.appInit: return this.headerAppInitialize(request);
-      case
-      environment.api_base + backendUrl.register,
-      environment.api_base + backendUrl.login: return this.headerPostNoBearer(request)
+      case environment.api_base + backendUrl.register:
+      case environment.api_base + backendUrl.login:
+      case environment.api_base + backendUrl.captcha:
+      case environment.api_base + backendUrl.csrf: return this.headerPostNoBearer(request)
       default: return request;
     }
   }
@@ -27,7 +32,7 @@ export class HeaderParameterService {
    * @returns
    */
   private headerAppInitialize(request: HttpRequest<unknown>): HttpRequest<unknown>  {
-    LogUtility.log(request.url)
+    LogUtility.log(HeaderParameterService.name, request.url)
 
     return request.clone({
       withCredentials: true,
@@ -46,11 +51,11 @@ export class HeaderParameterService {
     let token: string | undefined = undefined;
 
     const user = localStorage.getItem('user');
-    LogUtility.log(`Données utilisateur : ${user}`)
+    LogUtility.log(HeaderParameterService.name, `Données utilisateur : ${user}`)
 
     if(user) {
       const { jwt: token } = JSON.parse(user);
-      LogUtility.log(`user login jwt: ${token}`);
+      LogUtility.log(HeaderParameterService.name, `user login jwt: ${token}`);
     }
 
 
@@ -70,11 +75,14 @@ export class HeaderParameterService {
    * @returns
    */
   private headerPostNoBearer(request: HttpRequest<unknown>): HttpRequest<unknown>  {
+    LogUtility.log(HeaderParameterService.name, "headerPostNoBearer");
+      LogUtility.log(HeaderParameterService.name, `Token CSRF: ${localStorage.getItem(APP_CONSTANTS.POST_CSRF_TOKEN)?? ''}`)
+
     return request.clone({
       withCredentials: true,
       setHeaders: {
-        'Content-Type': 'application/json',
-        'Post-Csrf-Token': localStorage.getItem(APP_CONSTANTS.POST_CSRF_TOKEN) ?? ''
+        'Post-Csrf-Token': localStorage.getItem(APP_CONSTANTS.POST_CSRF_TOKEN)?? '',
+        'Content-Type': 'application/json'
       }
     });
   }

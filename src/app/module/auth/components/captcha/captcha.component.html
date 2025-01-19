@@ -1,0 +1,19 @@
+ <!--captcha-->
+ <div [formGroup]="fg" class="flex flex-column w-full m-4 p-4 shadow-1" *ngIf="(captcha$ | async) as captcha; else waitingBlock">
+  <p class="mb-2">{{captcha.captchaTitle}}</p>
+  <div class="flex flex-column align-items-center mb-2">
+    <img [src]="'data:' + captcha.captchaImage.mimeType + ';base64,' + captcha.captchaImage.image">
+  </div>
+  <input pInputText style="border-color: var(--first_color)" id="captchaResponse" type="text" formControlName="captchaResponse">
+   <!--Message erreur-->
+   <div   *ngIf="fg.get('captchaResponse')?.touched && fg.get('captchaResponse')?.errors?.['required']">
+    <p-message class="p-message" severity="error" [text]="properties.registerCaptchaResponseMissing" ></p-message>
+  </div>
+</div>
+<ng-template #waitingBlock>
+  <div class="shadow-2 p-4 m-4 w-12">
+    <p-skeleton class="p-2" width="10rem" height="2rem"></p-skeleton>
+    <p-skeleton class="ml-4" width="80%" height="70px" borderRadius="16px"></p-skeleton>
+    <p-skeleton class="p-2" width="10rem" height="35px"></p-skeleton>
+  </div>
+</ng-template>

@@ -1,4 +1,3 @@
 export const APP_CONSTANTS = {
-  POST_CSRF_TOKEN: ''
-
+  POST_CSRF_TOKEN: 'Post-Csrf-Token'
 }

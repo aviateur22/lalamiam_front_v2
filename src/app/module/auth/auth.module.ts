@@ -10,7 +10,7 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { authRouting } from './routes/auth.routing';
 import { reducers as authReducer } from './store/reducer';
-import { Effect as AuthEffect} from './store/effect';
+import { AuthEffect} from './store/effect';
 import { AuthService } from './services/auth.service';
 
 import { InputTextModule } from 'primeng/inputtext';
@@ -23,7 +23,8 @@ import { SkeletonModule } from 'primeng/skeleton';
 import { AccountActivationPageComponent } from './pages/account-activation-page/account-activation-page.component';
 import { ChangePasswordPageComponent } from './pages/change-password-page/change-password-page.component';
 import { LostPasswordPageComponent } from './pages/lost-password-page/lost-password-page.component';
-
+import { CaptchaComponent } from './components/captcha/captcha.component';
+import { RegisterProfessionalPageComponent } from './pages/register-professional-page/register-professional-page.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,9 @@ import { LostPasswordPageComponent } from './pages/lost-password-page/lost-passw
     RegisterPageComponent,
     AccountActivationPageComponent,
     ChangePasswordPageComponent,
-    LostPasswordPageComponent
+    LostPasswordPageComponent,
+    CaptchaComponent,
+    RegisterProfessionalPageComponent
   ],
   imports: [
     CommonModule,

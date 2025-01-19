@@ -1,0 +1,38 @@
+{
+  "loginPageTitle": "{{main_page_title}} | Login page",
+  "changeAccountPasswordTitle": "{{main_page_title}} | Update password account",
+  "activateAccountTitle": "{{main_page_title}} | Account activation",
+  "lostPasswordMailingTitle": "{{main_page_title}} | Lost password",
+  "registerPageTitle": "{{main_page_title}} | Register",
+  "notFoundPageTitle": "{{main_page_title}} | Not found",
+  "forbiddenPageTitle": "{{main_page_title}} | Forbidden",
+  "errorPageTitle": "{{main_page_title}} | Error",
+  "userHomePageTitle" : "{{main_page_title}} | Your personnal account",
+  "homePageTitle": "{{main_page_title}}",
+
+  "loginTitle" : "Login",
+  "loginEmail" : "E-mail",
+  "loginEmailError": "Your E-mail is mandatory",
+  "loginPassword": "Password",
+  "loginPasswordError": "Your password is mandatory",
+  "loginButton": "Continue",
+  "loginRegisterRedirection": "Not yet register?",
+  "loginLostPasswordRedirection": "I lost my password",
+
+  "registerTitle" : "Create an account",
+  "registerEmail" : "Your E-mail",
+  "registerEmailError": "Your E-mail is mandatory",
+  "registerPassword": "Your password",
+  "registerPasswordError": "Your password is mandatory",
+  "registerPasswordCfm": "Password Confirmation",
+  "registerPasswordCfmError": "Password has to be the same",
+  "registerUserName" : "Your nickname",
+  "registerUserNameError" : "Your nickname is mandatory",
+  "registerCaptchaResponseMissing" : "Your response is missing",
+  "registerButton": "Continue",
+
+  "lostPasswordTitle":  "Reset my password",
+  "lostPasswordEmail" : "Your E-mail",
+  "lostPasswordEmailError" : "Your E-mail is mandatory"
+
+}

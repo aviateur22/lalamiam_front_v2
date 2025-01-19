@@ -11,9 +11,6 @@ export interface IEnvironment {
     // Language de l'ihm
     language: string,
 
-     // main URL IHM
-    webapp_path: string,
-
     // Main page title
     main_page_title: string
 }

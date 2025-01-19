@@ -1,0 +1,37 @@
+{
+  "loginPageTitle": "{{main_page_title}} | Page de connexion",
+  "changeAccountPasswordTitle": "{{main_page_title}} | Modification du mot de passe",
+  "activateAccountTitle": "{{main_page_title}} | Activation de votre commpte",
+  "lostPasswordMailingTitle": "{{main_page_title}} | Perte mot de passe",
+  "registerPageTitle": "{{main_page_title}} | Inscription",
+  "notFoundPageTitle": "{{main_page_title}} | Pas de résultat",
+  "forbiddenPageTitle": "{{main_page_title}} | Interdit",
+  "errorPageTitle": "{{main_page_title}} | Erreur",
+  "userHomePageTitle" : "{{main_page_title}} | Votre compte",
+  "homePageTitle": "{{main_page_title}}",
+
+  "loginTitle" : "Connectez-vous",
+  "loginEmail" : "E-mail",
+  "loginEmailError": "L'email est obligatoire",
+  "loginPassword": "Mot de passe",
+  "loginPasswordError": "Le mot de passe est obligatoire",
+  "loginButton": "Continuer",
+  "loginRegisterRedirection": "Vous n'est pas encore inscrit?",
+  "loginLostPasswordRedirection": "J'ai oublié mon mot de passe",
+
+  "registerTitle" : "Créer un compte",
+  "registerEmail" : "Votre E-mail",
+  "registerEmailError": "Votre E-mail est obligatoire",
+  "registerPassword": "Votre mot de passe",
+  "registerPasswordError": "Le mot de passe est obligatoire",
+  "registerPasswordCfm": "Confirmation de votre mot de passe",
+  "registerPasswordCfmError": "Les 2 mots de passe doivent être identique",
+  "registerUserName" : "Votre pseudo",
+  "registerUserNameError" : "Le pseudo est obligatoire",
+  "registerCaptchaResponseMissing" : "La réponse est obligatoire",
+  "registerButton": "Contineur",
+
+  "lostPasswordTitle":  "Réinitialisation du mot de passe",
+  "lostPasswordEmail" : "Renseigner votre E-mail",
+  "lostPasswordEmailError" : "Votre E-mail est obligatoire"
+}

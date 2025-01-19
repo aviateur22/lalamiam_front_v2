@@ -1,1 +1,48 @@
-<p>register-page works!</p>
+<div>
+  <div>
+    <div>
+      <h2>{{properties.registerTitle}}</h2>
+    </div>
+    <section>
+      <form action="" [formGroup]="registerFG" (submit)="register()">
+        <div>
+          <label for="email">{{properties.registerEmail}}</label>
+          <input id="email" formControlName="email"  type="email">
+          <!--Message erreur-->
+          <div *ngIf="registerFG.get('email')?.touched && registerFG.get('email')?.errors?.['required']">
+            <p-message class="p-message" severity="error" [text]="properties.registerEmailError" ></p-message>
+          </div>
+        </div>
+        <div>
+          <label for="password">{{properties.registerPassword}}</label>
+          <input id="password" formControlName="password"  type="password">
+          <!--Message erreur-->
+          <div *ngIf="registerFG.get('password')?.touched && registerFG.get('password')?.errors?.['required']">
+            <p-message class="p-message" severity="error" [text]="properties.registerPasswordError" ></p-message>
+          </div>
+        </div>
+        <div>
+          <label for="passwordCfm">{{properties.registerPasswordCfm}}</label>
+          <input id="passwordCfm" formControlName="passwordCfm"  type="password">
+           <!--Message erreur-->
+           <div *ngIf="registerFG.get('passwordCfm')?.touched && registerFG.get('passwordCfm')?.errors?.['required']">
+            <p-message class="p-message" severity="error" [text]="properties.registerPasswordCfmError" ></p-message>
+          </div>
+        </div>
+        <div>
+          <label for="nickname">{{properties.registerUserName}}</label>
+          <input id="nickname" formControlName="nickname"  type="text">
+          <!--Message erreur-->
+          <div *ngIf="registerFG.get('nickname')?.touched && registerFG.get('nickname')?.errors?.['required']">
+            <p-message class="p-message" severity="error" [text]="properties.registerUserNameError" ></p-message>
+          </div>
+        </div>
+         <!--captcha-->
+         <app-captcha [fg]="registerFG"></app-captcha>
+         <div>
+          <input [disabled]="" type="submit" [value]="properties.registerButton">
+        </div>
+      </form>
+    </section>
+  </div>
+</div>
