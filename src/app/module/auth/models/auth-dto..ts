@@ -14,14 +14,20 @@ export interface ILoginResponseDto extends IResponse {
 
 export interface IUserCaptchaResponseDto {
   clientResponse: string,
-  captchaResponseId: BigInt
+  captchaResponseIdEncrypt: string
 }
 
 export interface IRegisterDto {
   email: string,
   password: string,
-  username: string,
+  nickName: string,
   userCaptchaResponse: IUserCaptchaResponseDto
+}
+
+export interface IProfessionalRegisterDto extends IRegisterDto {
+  lastName: string,
+  firstName: string,
+  phone: string
 }
 
 export interface IRegisterResponseDto extends IResponse {
@@ -31,7 +37,7 @@ export interface IRegisterResponseDto extends IResponse {
 export interface ICaptchaDto {
   captchaTitle: string,
   captchaQuestionImageBase64: ICaptchaImageDto,
-  captchaExpectedResponseId: BigInt
+  captchaResponseIdEncrypt: string
 }
 
 export interface ICaptchaImageDto {

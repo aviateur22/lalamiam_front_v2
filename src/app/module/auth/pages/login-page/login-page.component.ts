@@ -44,6 +44,9 @@ export class LoginPageComponent extends LoadCsrf {
     this._authService.login(login).subscribe({
       next:(loginResponse) =>{
         this._router.navigate([frontendUrl.userHome.url]);
+      },
+      error:(error)=>{
+        console.log(error);
       }
 
 

@@ -25,6 +25,7 @@ import { ChangePasswordPageComponent } from './pages/change-password-page/change
 import { LostPasswordPageComponent } from './pages/lost-password-page/lost-password-page.component';
 import { CaptchaComponent } from './components/captcha/captcha.component';
 import { RegisterProfessionalPageComponent } from './pages/register-professional-page/register-professional-page.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { RegisterProfessionalPageComponent } from './pages/register-professional
     ChangePasswordPageComponent,
     LostPasswordPageComponent,
     CaptchaComponent,
-    RegisterProfessionalPageComponent
+    RegisterProfessionalPageComponent,
+    RegisterComponent
   ],
   imports: [
     CommonModule,

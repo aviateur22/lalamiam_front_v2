@@ -1,4 +1,3 @@
-import { LogUtility } from "src/utils/log.utility";
 import { AuthService } from "./module/auth/services/auth.service";
 
 export abstract class LoadCsrf {

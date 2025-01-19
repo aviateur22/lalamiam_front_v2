@@ -2,7 +2,7 @@ import { ResolveFn } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import frontendUrl from 'src/misc/frontend.url';
 import { LogUtility } from 'src/utils/log.utility';
-import { AppParamService } from '../module/init/services/app-param.service';
+import { AppParamService } from '../../init/services/app-param.service';
 import { inject } from '@angular/core';
 import { TextUtility } from 'src/utils/text-utility';
 
@@ -27,6 +27,7 @@ export const titleResolver: ResolveFn<string> = (route, state) => {
         case frontendUrl.error.url: return addApplicationTitle(properties.errorPageTitle);
         case frontendUrl.login.url: return addApplicationTitle(properties.loginPageTitle);
         case frontendUrl.register.url: return addApplicationTitle(properties.registerPageTitle);
+        case frontendUrl.professionalRegister.url: return addApplicationTitle(properties.registerProfessionalPageTitle);
         case frontendUrl.accountActivation.url: return addApplicationTitle(properties.activateAccountTitle);
         case frontendUrl.changeAccountPassword.url: return addApplicationTitle(properties.changeAccountPasswordTitle);
         case frontendUrl.lostPasswordMailingPage.url: return addApplicationTitle(properties.lostPasswordMailingTitle);

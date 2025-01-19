@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { FlashMessage } from '../../model/common.model';
+import { FlashMessage } from '../../../model/common.model';
 
 @Component({
   selector: 'app-flash-message',

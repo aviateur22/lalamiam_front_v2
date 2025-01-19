@@ -15,8 +15,8 @@ export class CaptchaComponent {
   @Input() fg: FormGroup = new FormGroup({});
   captcha$: Observable<Captcha|null> = of(null);
 
-constructor(private _authService: AuthService, private _appParamService: AppParamService) {
-}
+  constructor(private _authService: AuthService, private _appParamService: AppParamService) {
+  }
 
   ngOnInit() {
     this.properties = this._appParamService.getProperties();

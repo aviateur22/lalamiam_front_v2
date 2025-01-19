@@ -9,11 +9,9 @@ import {
 } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
 import { Router } from '@angular/router';
-import { environment } from 'src/environments/environment';
 import frontendLinkUrl from '../../misc/frontend.url';
-import { APP_CONSTANTS } from '../constant';
+import { APP_CONSTANTS } from '../../misc/constant';
 import { HeaderParameterService } from './services/header.parameter.service';
-import { LogUtility } from 'src/utils/log.utility';
 
 
 @Injectable()

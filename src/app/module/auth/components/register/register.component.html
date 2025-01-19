@@ -1,0 +1,36 @@
+<div [formGroup]="fg">
+  <div>
+    <label for="email">{{properties.registerEmail}}</label>
+    <input id="email" formControlName="email"  type="email">
+    <!--Message erreur-->
+    <div *ngIf="fg.get('email')?.touched && fg.get('email')?.errors?.['required']">
+      <p-message class="p-message" severity="error" [text]="properties.registerEmailError" ></p-message>
+    </div>
+  </div>
+  <div>
+    <label for="nickName">{{properties.registerNickName}}</label>
+    <input id="nickName" formControlName="nickName"  type="text">
+    <!--Message erreur-->
+    <div *ngIf="fg.get('nickName')?.touched && fg.get('nickName')?.errors?.['required']">
+      <p-message class="p-message" severity="error" [text]="properties.registerNickNameError" ></p-message>
+    </div>
+  </div>
+  <div>
+    <label for="password">{{properties.registerPassword}}</label>
+    <input id="password" formControlName="password"  type="password">
+    <!--Message erreur-->
+    <div *ngIf="fg.get('password')?.touched && fg.get('password')?.errors?.['required']">
+      <p-message class="p-message" severity="error" [text]="properties.registerPasswordError" ></p-message>
+    </div>
+  </div>
+  <div>
+    <label for="passwordCfm">{{properties.registerPasswordCfm}}</label>
+    <input id="passwordCfm" formControlName="passwordCfm"  type="password">
+     <!--Message erreur-->
+     <div *ngIf="fg.get('passwordCfm')?.touched && fg.get('passwordCfm')?.errors?.['required']">
+      <p-message class="p-message" severity="error" [text]="properties.registerPasswordCfmError" ></p-message>
+    </div>
+  </div>
+  <!--captcha-->
+  <app-captcha [fg]="fg"></app-captcha>
+</div>

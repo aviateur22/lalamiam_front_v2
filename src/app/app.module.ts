@@ -10,34 +10,29 @@ import { InitModule } from './module/init/init.module';
 import { CommonModule } from './module/common/common.module';
 
 import { AppComponent } from './app.component';
-import { HomePageComponent } from './pages/home-page/home-page.component';
-import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
-import { ErrorPageComponent } from './pages/error-page/error-page.component';
+// import { HomePageComponent } from './pages/home-page/home-page.component';
+// import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
+// import { ErrorPageComponent } from './pages/error-page/error-page.component';
 
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { reducers } from 'src/store/state';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { CommonEffect } from './module/common/store/effect';
 
 import { HandlerHttpInterceptor } from 'src/app/interceptor/http.interceptor';
 import { HeaderParameterService } from './interceptor/services/header.parameter.service';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HomePageComponent,
-    NotFoundPageComponent,
-    ErrorPageComponent
-
+    AppComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AuthModule,
     InitModule,
-    CommonModule,
     AppRoutingModule,
+    CommonModule,
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({maxAge: 25, logOnly:! environment.production})

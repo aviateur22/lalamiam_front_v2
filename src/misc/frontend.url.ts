@@ -17,6 +17,9 @@ export default {
   register: {
     url: 'auth/create-account'
   },
+  professionalRegister: {
+    url: 'auth/professional/create-account'
+  },
   registerConfirmation: {
     url: 'auth/create-account/user/:user/confirmation/:confirmation'
   },

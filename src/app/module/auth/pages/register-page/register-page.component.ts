@@ -19,7 +19,7 @@ export class RegisterPageComponent extends LoadCsrf {
       email: ['', Validators.required],
       password: ['', Validators.required],
       passwordCfm: ['', Validators.required],
-      nickname: ['', Validators.required],
+      nickName: ['', Validators.required],
       captchaResponse: ['', Validators.required]
     });
 
@@ -38,8 +38,11 @@ export class RegisterPageComponent extends LoadCsrf {
     const register: IRegisterDto = {
       email: this.registerFG.get('email')?.value,
       password: this.registerFG.get('password')?.value,
-      username: this.registerFG.get('userName')?.value,
-      userCaptchaResponse: this.registerFG.get('captchaResponse')?.value
+      nickName: this.registerFG.get('nickName')?.value,
+      userCaptchaResponse: {
+        clientResponse: this.registerFG.get('captchaResponse')?.value,
+        captchaResponseIdEncrypt: ''
+      }
     }
 
     this._authService.register(register).subscribe(result=>{
