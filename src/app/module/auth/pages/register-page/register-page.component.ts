@@ -5,6 +5,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AppParamService } from 'src/app/module/init/services/app-param.service';
 import { IRegisterDto } from '../../models/auth-dto.';
 import { LogUtility } from 'src/utils/log.utility';
+import { StorageService } from 'src/app/module/common/service/storage.service';
+import { APP_CONSTANTS } from 'src/misc/constant';
 
 @Component({
   selector: 'app-register-page',
@@ -23,7 +25,7 @@ export class RegisterPageComponent extends LoadCsrf {
       captchaResponse: ['', Validators.required]
     });
 
-  constructor(private _authService: AuthService,private _fb: FormBuilder, private _appParamService: AppParamService) {
+  constructor(private _authService: AuthService,private _fb: FormBuilder, private _appParamService: AppParamService, private _storageService: StorageService) {
     super(_authService);
   }
 
@@ -41,7 +43,7 @@ export class RegisterPageComponent extends LoadCsrf {
       nickName: this.registerFG.get('nickName')?.value,
       userCaptchaResponse: {
         clientResponse: this.registerFG.get('captchaResponse')?.value,
-        captchaResponseIdEncrypt: ''
+        captchaResponseIdEncrypt: this._storageService.getItem(APP_CONSTANTS.CAPTCHA_EXPECTED_RESPONSE),
       }
     }
 

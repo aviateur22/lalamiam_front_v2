@@ -8,11 +8,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AuthModule } from './module/auth/auth.module';
 import { InitModule } from './module/init/init.module';
 import { CommonModule } from './module/common/common.module';
+import { UserModule } from './module/user/user.module';
 
 import { AppComponent } from './app.component';
-// import { HomePageComponent } from './pages/home-page/home-page.component';
-// import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
-// import { ErrorPageComponent } from './pages/error-page/error-page.component';
 
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
@@ -31,10 +29,11 @@ import { HeaderParameterService } from './interceptor/services/header.parameter.
     HttpClientModule,
     AuthModule,
     InitModule,
-    AppRoutingModule,
+    UserModule,
     CommonModule,
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([]),
+    AppRoutingModule,
     StoreDevtoolsModule.instrument({maxAge: 25, logOnly:! environment.production})
   ],
   providers: [
