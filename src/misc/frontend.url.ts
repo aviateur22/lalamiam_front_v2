@@ -20,6 +20,9 @@ export default {
   professionalRegister: {
     url: 'auth/professional/create-account'
   },
+  professionalRegisterConfirmation: {
+    url: 'auth/professional-register-confirmation/user-email/:user-email/confirmation-token/:confirmation-token'
+  },
   registerConfirmation: {
     url: 'auth/create-account/user/:user/confirmation/:confirmation'
   },

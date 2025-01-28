@@ -14,10 +14,6 @@ import { StorageService } from 'src/app/module/common/service/storage.service';
 })
 export class RegisterProfessionalPageComponent extends LoadCsrf {
 
-  // Properties contenant les données du formulaire
-  properties: any;
-
-
   registerFG: FormGroup = this._fb.group({
     email: ['', Validators.required],
     firstName: ['', Validators.required],
@@ -25,7 +21,7 @@ export class RegisterProfessionalPageComponent extends LoadCsrf {
     phone: ['', Validators.required],
     password: ['', Validators.required],
     passwordCfm: ['', Validators.required],
-    nickName: ['', Validators.required],
+    nickname: ['', Validators.required],
     captchaResponse: ['', Validators.required]
   });
 
@@ -35,11 +31,7 @@ export class RegisterProfessionalPageComponent extends LoadCsrf {
     private _fb: FormBuilder,
     private _appParamService: AppParamService
   ){
-    super(_authService)
-  }
-
-  ngOnInit() {
-    this.properties = this._appParamService.getProperties();
+    super(_authService, _appParamService)
   }
 
    register() {
@@ -53,7 +45,7 @@ export class RegisterProfessionalPageComponent extends LoadCsrf {
         firstName: this.registerFG.get('firstName')?.value,
         phone: this.registerFG.get('phone')?.value,
         password: this.registerFG.get('password')?.value,
-        nickName: this.registerFG.get('nickName')?.value,
+        nickname: this.registerFG.get('nickname')?.value,
         userCaptchaResponse: {
           captchaResponseIdEncrypt: this._storageService.getItem(APP_CONSTANTS.CAPTCHA_EXPECTED_RESPONSE),
           clientResponse: this.registerFG.get('captchaResponse')?.value

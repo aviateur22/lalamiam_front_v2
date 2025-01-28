@@ -5,6 +5,7 @@
   "lostPasswordMailingTitle": "{{main_page_title}} | Lost password",
   "registerPageTitle": "{{main_page_title}} | Register",
   "registerProfessionalPageTitle": "{{main_page_title}} | Professional Register",
+  "registerProfessionalConfirmationPageTitle": "{{main_page_title}} | Professional Register Confirmation",
   "notFoundPageTitle": "{{main_page_title}} | Not found",
   "forbiddenPageTitle": "{{main_page_title}} | Forbidden",
   "errorPageTitle": "{{main_page_title}} | Error",
@@ -37,6 +38,11 @@
   "registerFirstNameError": "Your first name is mandatory",
   "registerPhoneError": "Your phone number is mandatory",
   "registerButton": "Continue",
+
+  "registerProfessionalConfirmationTitle" : "Professional inscription confirmation",
+  "registerProfessionalConfirmationEmailToken": "Your token which is send by email",
+  "registerProfessionalConfirmationEmailTokenError": "Your token is mandatory",
+  "registerProfessionalConfirmationButton": "Confirm",
 
   "lostPasswordTitle":  "Reset my password",
   "lostPasswordEmail" : "Your E-mail",

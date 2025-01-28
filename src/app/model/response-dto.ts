@@ -1,3 +1,3 @@
-export interface IResponse {
+export interface IResponseDto {
   responseMessage: string
 }

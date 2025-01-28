@@ -1,0 +1,22 @@
+<div>
+  <div>
+    <div>
+      <h2>{{properties.registerProfessionalConfirmationTitle}}</h2>
+    </div>
+    <section>
+      <form action="" [formGroup]="registerConfirmationFG" (submit)="confirmRegistration()">
+        <div>
+          <label for="emailToken">{{properties.registerProfessionalConfirmationEmailToken}}</label>
+          <input id="emailToken" formControlName="emailToken"  type="text">
+          <!--Message erreur-->
+          <div *ngIf="registerConfirmationFG.get('emailToken')?.touched && registerConfirmationFG.get('emailToken')?.errors?.['required']">
+            <p-message class="p-message" severity="error" [text]="properties.registerProfessionalConfirmationEmailTokenError" ></p-message>
+          </div>
+        </div>
+        <div>
+          <input [disabled]="" type="submit" [value]="properties.registerProfessionalConfirmationButton">
+        </div>
+      </form>
+    </section>
+  </div>
+</div>

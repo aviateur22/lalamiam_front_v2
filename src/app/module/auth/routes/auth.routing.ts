@@ -10,6 +10,7 @@ import { ChangePasswordPageComponent } from "../pages/change-password-page/chang
 import { LostPasswordPageComponent } from "../pages/lost-password-page/lost-password-page.component";
 import { titleResolver } from "src/app/module/common/service/title.resolver";
 import { RegisterProfessionalPageComponent } from "../pages/register-professional-page/register-professional-page.component";
+import { ProfessionalRegisterConfirmationPageComponent } from "../pages/professional-register-confirmation-page/professional-register-confirmation-page.component";
 
 export const authRouting: Route[] = [
     { path: frontendLinkUrl.login.url, component: LoginPageComponent, resolve:{ title: titleResolver}},
@@ -17,7 +18,6 @@ export const authRouting: Route[] = [
     { path: frontendLinkUrl.accountActivation.url, component: AccountActivationPageComponent, resolve:{ title: titleResolver}},
     { path: frontendLinkUrl.changeAccountPassword.url, component: ChangePasswordPageComponent, resolve:{ title: titleResolver}},
     { path: frontendLinkUrl.lostPasswordMailingPage.url, component: LostPasswordPageComponent, resolve:{ title: titleResolver}},
-    { path: frontendLinkUrl.professionalRegister.url, component: RegisterProfessionalPageComponent, resolve:{ title: titleResolver}}
-
-
+    { path: frontendLinkUrl.professionalRegister.url, component: RegisterProfessionalPageComponent, resolve:{ title: titleResolver}},
+    { path: frontendLinkUrl.professionalRegisterConfirmation.url, component: ProfessionalRegisterConfirmationPageComponent, resolve: { title: titleResolver}}
 ]

@@ -32,6 +32,7 @@ export const titleResolver: ResolveFn<string> = (route, state) => {
         case frontendUrl.changeAccountPassword.url: return addApplicationTitle(properties.changeAccountPasswordTitle);
         case frontendUrl.lostPasswordMailingPage.url: return addApplicationTitle(properties.lostPasswordMailingTitle);
         case frontendUrl.userHome.url: return addApplicationTitle(properties.userHomePageTitle);
+        case frontendUrl.professionalRegisterConfirmation.url: return addApplicationTitle(properties.registerProfessionalConfirmationPageTitle);
         default: {
           LogUtility.error(titleResolver.name, `Le titre de la page n'existe pas - path ${path}`);
           return `${environment.main_page_title} | --`;

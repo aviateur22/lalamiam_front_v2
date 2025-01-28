@@ -19,6 +19,7 @@ export class HeaderParameterService {
       case environment.api_base + backendUrl.appInit: return this.headerAppInitialize(request);
       case environment.api_base + backendUrl.register:
       case environment.api_base + backendUrl.professionalRegister:
+      case environment.api_base + backendUrl.professionalRegisterConfirmation:
       case environment.api_base + backendUrl.login:
       case environment.api_base + backendUrl.captcha:
       case environment.api_base + backendUrl.csrf: return this.headerPostNoBearer(request)

@@ -8,10 +8,10 @@
     </div>
   </div>
   <div>
-    <label for="nickName">{{properties.registerNickName}}</label>
-    <input id="nickName" formControlName="nickName"  type="text">
+    <label for="nickname">{{properties.registerNickName}}</label>
+    <input id="nickname" formControlName="nickname"  type="text">
     <!--Message erreur-->
-    <div *ngIf="fg.get('nickName')?.touched && fg.get('nickName')?.errors?.['required']">
+    <div *ngIf="fg.get('nickname')?.touched && fg.get('nickname')?.errors?.['required']">
       <p-message class="p-message" severity="error" [text]="properties.registerNickNameError" ></p-message>
     </div>
   </div>

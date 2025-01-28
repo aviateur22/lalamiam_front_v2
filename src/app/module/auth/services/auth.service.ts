@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ICaptchaDto, ILoginDto, ILoginResponseDto, IProfessionalRegisterDto, IRegisterDto, IRegisterResponseDto } from '../models/auth-dto.';
+import { ICaptchaDto, ILoginDto, ILoginResponseDto, IProfessionalRegisterConfirmationDto, IProfessionalRegisterDto, IRegisterDto, IRegisterResponseDto } from '../models/auth-dto.';
 import { catchError, firstValueFrom, map, Observable, of, tap, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import backendUrl from 'src/misc/backend.url';
@@ -14,6 +14,7 @@ import { IAppState } from 'src/store/state';
 import { Store } from '@ngrx/store';
 import { APP_CONSTANTS } from 'src/misc/constant';
 import { StorageService } from 'src/app/module/common/service/storage.service';
+import { IResponseDto } from 'src/app/model/response-dto';
 
 @Injectable({
   providedIn: 'root'
@@ -72,6 +73,27 @@ export class AuthService {
       })
     )
   }
+
+  /**
+   * Confirmation inscription professionel
+   * @param professionalRegisterConfirmationDto
+   * @returns IResponseDto
+   */
+  professionalRegisterConfirmation(professionalRegisterConfirmationDto: IProfessionalRegisterConfirmationDto): Observable<IResponseDto> {
+    console.log("ddd")
+    return this._http.post<IResponseDto>(this.apiPath(backendUrl.professionalRegisterConfirmation), professionalRegisterConfirmationDto).pipe(
+      map(response=>{
+        this._store.dispatch(FlashMessageAction.addMessageToList({ flashMessage: new FlashMessage(response.responseMessage, false)}));
+        return response;
+      }),
+      catchError(error => {
+        const errorMessage: string = error.error.error;
+        this._store.dispatch(FlashMessageAction.addMessageToList({ flashMessage: new FlashMessage(errorMessage, true)}));
+        return of({} as IResponseDto);
+      })
+    )
+  }
+
   /**
    * Récupération token CSRF
    * @returns Promise<void>

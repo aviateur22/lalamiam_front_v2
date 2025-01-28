@@ -30,10 +30,10 @@
           </div>
         </div>
         <div>
-          <label for="nickName">{{properties.registerNickName}}</label>
-          <input id="nickName" formControlName="nickName"  type="text">
+          <label for="nickname">{{properties.registerNickName}}</label>
+          <input id="nickname" formControlName="nickname"  type="text">
           <!--Message erreur-->
-          <div *ngIf="registerFG.get('nickName')?.touched && registerFG.get('nickName')?.errors?.['required']">
+          <div *ngIf="registerFG.get('nickname')?.touched && registerFG.get('nickname')?.errors?.['required']">
             <p-message class="p-message" severity="error" [text]="properties.registerNickNameError" ></p-message>
           </div>
         </div>

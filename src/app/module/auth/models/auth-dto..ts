@@ -1,15 +1,21 @@
-import { IResponse } from "src/app/model/response-dto";
+import { IResponseDto } from "src/app/model/response-dto";
 
 export interface ILoginDto {
   email: string,
   password: string
 }
 
-export interface ILoginResponseDto extends IResponse {
+export interface ILoginResponseDto extends IResponseDto {
   jwt: string,
   id: BigInt
   email: string,
   roles: string[],
+}
+
+export interface IProfessionalRegisterConfirmationDto {
+  email: string,
+  emailToken: string,
+  urlToken: string
 }
 
 export interface IUserCaptchaResponseDto {
@@ -20,7 +26,7 @@ export interface IUserCaptchaResponseDto {
 export interface IRegisterDto {
   email: string,
   password: string,
-  nickName: string,
+  nickname: string,
   userCaptchaResponse: IUserCaptchaResponseDto
 }
 
@@ -30,7 +36,7 @@ export interface IProfessionalRegisterDto extends IRegisterDto {
   phone: string
 }
 
-export interface IRegisterResponseDto extends IResponse {
+export interface IRegisterResponseDto extends IResponseDto {
 
 }
 
@@ -44,3 +50,5 @@ export interface ICaptchaImageDto {
   mimeType: string,
   base64Format: string,
 }
+
+
