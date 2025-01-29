@@ -1,16 +1,14 @@
-import { createReducer } from "@ngrx/store";
+import { createReducer, on } from "@ngrx/store";
 import { IAuthModel } from "./auth.model";
+import { addUserOnLoginSuccess, addUserOnRefresh, removeUserOnLogout } from "./action";
 
 export const initialState: IAuthModel = {
-  error: '',
-  isErrorVisible: false,
-  isLoading: false,
-  captcha: null,
-  activateAccountResponse: null,
-  changeAccountPassword: null
+  userEmail: null
 }
 
 export const reducers = createReducer(
-  initialState
-
+  initialState,
+  on(addUserOnLoginSuccess, (state, {userEmail})=> ({...state, userEmail})),
+  on(addUserOnRefresh,(state, {userEmail})=>({...state, userEmail})),
+  on(removeUserOnLogout,(state)=>({...state, userEmail:null}))
 )

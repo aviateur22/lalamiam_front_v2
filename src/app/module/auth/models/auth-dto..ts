@@ -5,6 +5,11 @@ export interface ILoginDto {
   password: string
 }
 
+export interface ILogoutDto {
+  email: string,
+  userId: bigint
+}
+
 export interface ILoginResponseDto extends IResponseDto {
   jwt: string,
   id: BigInt

@@ -1,13 +1,14 @@
 import { Injectable } from "@angular/core";
-import { Actions, createEffect, ofType } from "@ngrx/effects";
+import { Actions, createEffect, ofType, ROOT_EFFECTS_INIT } from "@ngrx/effects";
 import * as FlashMessageAction from "./flash-message.action";
 import { catchError, delay, map, of, switchMap, tap } from "rxjs";
 import { LogUtility } from "src/utils/log.utility";
+import { StorageService } from "../service/storage.service";
 
 @Injectable()
 export class CommonEffect {
 
-  constructor(private _action$: Actions){}
+  constructor(private _action$: Actions, private _storageService: StorageService){}
 
   addFlashMessage$ = createEffect(()=>
     this._action$.pipe(
@@ -30,6 +31,4 @@ export class CommonEffect {
     ), {dispatch: false}
 
   )
-
-
 }

@@ -5,6 +5,7 @@ import { FlashMessageComponent } from './components/fash_message/flash-message/f
 import { ErrorPageComponent } from './page/error-page/error-page.component';
 import { HomePageComponent } from './page/home-page/home-page.component';
 import { NotFoundPageComponent } from './page/not-found-page/not-found-page.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 import { StorageService } from './service/storage.service';
 import { reducers as flashMessageReducers} from './store/flash-message.reducer'
@@ -14,15 +15,19 @@ import { EffectsModule } from '@ngrx/effects';
 import { commonRooting } from './routes/common.routing';
 import { RouterModule } from '@angular/router';
 
+import { MessageModule } from 'primeng/message';
+
 @NgModule({
   declarations: [
     FlashMessageComponent,
     FlashMessageContainerComponent,
     ErrorPageComponent,
     HomePageComponent,
-    NotFoundPageComponent
+    NotFoundPageComponent,
+    NavbarComponent
   ],
   imports: [
+    MessageModule,
     AngularCommonModule,
     RouterModule.forChild(commonRooting),
     StoreModule.forFeature('flashMessageState', flashMessageReducers),
@@ -30,7 +35,8 @@ import { RouterModule } from '@angular/router';
       CommonEffect
     ])
   ], exports:[
-    FlashMessageContainerComponent
+    FlashMessageContainerComponent,
+    NavbarComponent
   ], providers: [
     StorageService
   ]

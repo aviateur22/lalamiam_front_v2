@@ -19,6 +19,7 @@ export class AppComponent {
       let title = this.resolveTitle(currentRoute);
       this._titleService.setTitle(title || 'Missing Title');
     });
+
   }
 
   resolveTitle(route: any): string | null {

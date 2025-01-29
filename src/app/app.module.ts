@@ -19,6 +19,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { HandlerHttpInterceptor } from 'src/app/interceptor/http.interceptor';
 import { HeaderParameterService } from './interceptor/services/header.parameter.service';
+import { InitEffect } from 'src/store/effect';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { HeaderParameterService } from './interceptor/services/header.parameter.
     UserModule,
     CommonModule,
     StoreModule.forRoot(reducers),
-    EffectsModule.forRoot([]),
+    EffectsModule.forRoot([InitEffect]),
     AppRoutingModule,
     StoreDevtoolsModule.instrument({maxAge: 25, logOnly:! environment.production})
   ],

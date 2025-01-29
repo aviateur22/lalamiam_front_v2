@@ -25,4 +25,12 @@ export class StorageService {
   setItem(itemKey: string, itemValue: string): void {
     localStorage.setItem(itemKey, itemValue);
   }
+
+  /**
+   * Suppression item du storage
+   * @param itemKey - clé de l'item a supprimer
+   */
+  deleteItem(itemKey: string) {
+    localStorage.removeItem(itemKey);
+  }
 }

@@ -1,14 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ICaptchaDto, ILoginDto, ILoginResponseDto, IProfessionalRegisterConfirmationDto, IProfessionalRegisterDto, IRegisterDto, IRegisterResponseDto } from '../models/auth-dto.';
+import { ICaptchaDto, ILoginDto, ILoginResponseDto, ILogoutDto, IProfessionalRegisterConfirmationDto, IProfessionalRegisterDto, IRegisterDto, IRegisterResponseDto } from '../models/auth-dto.';
 import { catchError, firstValueFrom, map, Observable, of, tap, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import backendUrl from 'src/misc/backend.url';
 import { LogUtility } from 'src/utils/log.utility';
-import { Captcha } from '../models/auth.model';
+import { Captcha, EmailState } from '../models/auth.model';
 import { captchaMapper } from '../models/map-to-model';
 
 import * as FlashMessageAction from "./../../common/store/flash-message.action";
+import * as AuthAction from './../store/action';
 import { FlashMessage } from '../../common/model/common.model';
 import { IAppState } from 'src/store/state';
 import { Store } from '@ngrx/store';
@@ -27,6 +28,7 @@ export class AuthService {
 
     return this._http.post<ILoginResponseDto>(this.apiPath(backendUrl.login), loginDto).pipe(
       map(loginResponse=>{
+        this._store.dispatch(AuthAction.addUserOnLoginSuccess({ userEmail: new EmailState(loginResponse.email)}))
         this._store.dispatch(FlashMessageAction.addMessageToList({ flashMessage: new FlashMessage(loginResponse.responseMessage, false)}))
         var userString = JSON.stringify({
           userId: loginResponse.id,
@@ -45,6 +47,22 @@ export class AuthService {
         return throwError(() => error);
       })
     );
+  }
+
+  /**
+   * logout
+   * @param logoutDto
+   * @returns
+   */
+  logout(logoutDto: ILogoutDto) {
+    return this._http.post<IResponseDto>(this.apiPath(backendUrl.logout), logoutDto).pipe(
+      map(response=>{
+        this._store.dispatch(AuthAction.removeUserOnLogout())
+        this._store.dispatch(FlashMessageAction.addMessageToList({flashMessage: new FlashMessage(response.responseMessage, false)}));
+        this._storageService.deleteItem(APP_CONSTANTS.USER);
+        return response;
+      })
+    )
   }
 
   /**

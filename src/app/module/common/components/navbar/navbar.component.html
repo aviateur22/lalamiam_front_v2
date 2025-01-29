@@ -1,0 +1,30 @@
+<nav>
+  <!--Nav horizontale-->
+  <div>
+    <ng-container *ngIf="(userEmail$ | async) as user; else elseBlock">
+      <li class="right">
+        <button type="button" (click)="displayLogoutOverlay()">deconnexion</button>
+      </li>
+    </ng-container>
+    <ng-template #elseBlock>
+      <li class="right" routerLinkActive="active">
+        <a class="link" [routerLink]=loginLink>
+          <i class="pi pi-user"></i>
+          connexion
+        </a>
+      </li>
+    </ng-template>
+  </div>
+  <!--Nav vertical-->
+</nav>
+
+<!--Demande confirmation de sortie-->
+<ng-container *ngIf="isLogoutVisible">
+  <div>
+    <p>voulez-vous partir?</p>
+    <div>
+      <button (click)="logout()" type="button">quitter</button>
+      <button (click)="displayLogoutOverlay()" type="button">rester</button>
+    </div>
+  </div>
+</ng-container>

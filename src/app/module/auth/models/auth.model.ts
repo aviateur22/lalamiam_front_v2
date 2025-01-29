@@ -10,5 +10,10 @@ export class CaptchaImage {
     public readonly image: string,
     public readonly mimeType: string
   ) {}
+}
 
+export class EmailState {
+  constructor(
+    public readonly email: string
+  ) {}
 }

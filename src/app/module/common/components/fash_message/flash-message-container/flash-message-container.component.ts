@@ -16,7 +16,5 @@ export class FlashMessageContainerComponent {
 
   constructor(private _store: Store<IAppState>) {
     this.flashMessages$ = this._store.pipe(select(getFlashMessages));
-    console.log(this.flashMessages$);
-
   }
 }
