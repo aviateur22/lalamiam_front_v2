@@ -42,9 +42,6 @@ export class ProfessionalRegisterConfirmationPageComponent extends LoadCsrf {
     if(this.userEmail === null || this.userEmail.trim() === '' || this.urlToken === null || this.urlToken.trim() === '') {
       this._router.navigate([`${this.errorLink}`]);
     }
-
-    LogUtility.log(ProfessionalRegisterConfirmationPageComponent.name, this.userEmail);
-    LogUtility.log(ProfessionalRegisterConfirmationPageComponent.name, this.urlToken);
   }
 
   /**

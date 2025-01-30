@@ -56,4 +56,9 @@ export interface ICaptchaImageDto {
   base64Format: string,
 }
 
+export interface IReinitializeLostPasswordDto {
+  password: string,
+  urlToken: string,
+  email: string
+}
 

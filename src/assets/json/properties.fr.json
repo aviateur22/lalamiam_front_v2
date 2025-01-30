@@ -46,5 +46,20 @@
 
   "lostPasswordTitle":  "Réinitialisation du mot de passe",
   "lostPasswordEmail" : "Renseigner votre E-mail",
-  "lostPasswordEmailError" : "Votre E-mail est obligatoire"
+  "lostPasswordEmailError" : "Votre E-mail est obligatoire",
+
+  "navbarLogoutButton" : "Déconnexion",
+  "navbarLoginButton" : "Connexion",
+  "navbarLogoutQuestion" : "Etes vous sur de vouloir quitter?",
+  "navbarStayButton" : "Rester",
+  "navbarConfirmLogout" : "Quitter",
+
+  "updatePassworditle" : "Réinitialisation du mot de passe",
+  "updatePassword" : "Votre nouveau mot de passe",
+  "updatePasswordMissing" : "Le mot de passe est obligatoire",
+  "updatePasswordFormatError" : "Le mot de passe ne respecte pas le format attendu",
+  "updateConfirmPassword" : "Confirmation du mot de passe",
+  "updateConfirmPasswordMissing" : "La confirmation du mot de passe est obligatoire",
+  "updateConfirmPasswordErrorNotEqual" : "Les 2 mots de passe ne sont pas identique",
+  "updatePasswordButton" : "Modifier le mot de passe"
 }

@@ -12,6 +12,7 @@ import { authRouting } from './routes/auth.routing';
 import { reducers as authReducer } from './store/reducer';
 import { AuthEffect} from './store/effect';
 import { AuthService } from './services/auth.service';
+import { ShowOnFocusDirective } from './directives/show-on-focus.directive';
 
 import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
@@ -27,6 +28,8 @@ import { CaptchaComponent } from './components/captcha/captcha.component';
 import { RegisterProfessionalPageComponent } from './pages/register-professional-page/register-professional-page.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ProfessionalRegisterConfirmationPageComponent } from './pages/professional-register-confirmation-page/professional-register-confirmation-page.component';
+import { ReinitializePasswordLostPageComponent } from './pages/reinitialize-password-lost-page/reinitialize-password-lost-page.component';
+import { ReinitializePasswordComponent } from './components/reinitialize-password/reinitialize-password.component';
 
 @NgModule({
   declarations: [
@@ -38,12 +41,16 @@ import { ProfessionalRegisterConfirmationPageComponent } from './pages/professio
     CaptchaComponent,
     RegisterProfessionalPageComponent,
     RegisterComponent,
-    ProfessionalRegisterConfirmationPageComponent
+    ProfessionalRegisterConfirmationPageComponent,
+    ReinitializePasswordLostPageComponent,
+    ReinitializePasswordComponent,
+    ShowOnFocusDirective
   ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+
     RouterModule.forChild(authRouting),
     StoreModule.forFeature('authState', authReducer),
     EffectsModule.forFeature([

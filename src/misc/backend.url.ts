@@ -5,6 +5,7 @@ export default {
   register: '/auth/register-client',
   professionalRegister: '/auth/register-professional',
   professionalRegisterConfirmation: '/auth/register-confirm-by-professional',
+  reinitializeLostPassword: '/auth/reinitialize-lost-password',
   csrf: '/auth/generate-csrf',
   captcha: '/auth/generate-captcha'
 }

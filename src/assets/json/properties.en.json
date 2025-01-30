@@ -46,6 +46,21 @@
 
   "lostPasswordTitle":  "Reset my password",
   "lostPasswordEmail" : "Your E-mail",
-  "lostPasswordEmailError" : "Your E-mail is mandatory"
+  "lostPasswordEmailError" : "Your E-mail is mandatory",
+
+  "navbarLogoutButton" : "Logout",
+  "navbarLoginButton" : "Login",
+  "navbarLogoutQuestion" : "Are you sure to want to leave?",
+  "navbarStayButton" : "Stay",
+  "navbarConfirmLogout" : "Leave",
+
+  "updatePassworditle" : "Reinitialize my password",
+  "updatePassword" : "Your new password",
+  "updatePasswordMissing" : "The new password is mandatory",
+  "updatePasswordFormatError" : "The new password doesn't respect the goog format",
+  "updateConfirmPassword" : "Confirm your new password",
+  "updateConfirmPasswordMissing" : "The confirm password is mandatory",
+  "updateConfirmPasswordErrorNotEqual" : "Password and confirm password have to be the same",
+  "updatePasswordButton": "Change my password"
 
 }

@@ -43,7 +43,6 @@ export class NavbarComponent {
    * Toggle LogoutOverlay
   */
   displayLogoutOverlay() {
-    console.log("ii")
     this.isLogoutVisible = !this.isLogoutVisible;
   }
 

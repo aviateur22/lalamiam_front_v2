@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ICaptchaDto, ILoginDto, ILoginResponseDto, ILogoutDto, IProfessionalRegisterConfirmationDto, IProfessionalRegisterDto, IRegisterDto, IRegisterResponseDto } from '../models/auth-dto.';
+import { ICaptchaDto, ILoginDto, ILoginResponseDto, ILogoutDto, IProfessionalRegisterConfirmationDto, IProfessionalRegisterDto, IRegisterDto, IRegisterResponseDto, IReinitializeLostPasswordDto } from '../models/auth-dto.';
 import { catchError, firstValueFrom, map, Observable, of, tap, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import backendUrl from 'src/misc/backend.url';
@@ -93,12 +93,29 @@ export class AuthService {
   }
 
   /**
+   * Modification mot de passe perdu
+   * @param changeLostPassworddto
+   */
+  reinitializeLostPassword(reinitializeLostPasswordDto: IReinitializeLostPasswordDto): Observable<IResponseDto>{
+    return this._http.post<IResponseDto>(this.apiPath(backendUrl.reinitializeLostPassword), reinitializeLostPasswordDto).pipe(
+      map(response=>{
+        this._store.dispatch(FlashMessageAction.addMessageToList({ flashMessage: new FlashMessage(response.responseMessage, false)}));
+        return response;
+      }),
+      catchError(error => {
+        const errorMessage: string = error.error.error;
+        this._store.dispatch(FlashMessageAction.addMessageToList({ flashMessage: new FlashMessage(errorMessage, true)}));
+        return of({} as IResponseDto);
+      })
+    )
+  }
+
+  /**
    * Confirmation inscription professionel
    * @param professionalRegisterConfirmationDto
    * @returns IResponseDto
    */
   professionalRegisterConfirmation(professionalRegisterConfirmationDto: IProfessionalRegisterConfirmationDto): Observable<IResponseDto> {
-    console.log("ddd")
     return this._http.post<IResponseDto>(this.apiPath(backendUrl.professionalRegisterConfirmation), professionalRegisterConfirmationDto).pipe(
       map(response=>{
         this._store.dispatch(FlashMessageAction.addMessageToList({ flashMessage: new FlashMessage(response.responseMessage, false)}));

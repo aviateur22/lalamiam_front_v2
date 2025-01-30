@@ -29,8 +29,11 @@ export default {
   accountActivation: {
     url: 'auth/account-activation/user-email/:user-email/confirmation-token/:confirmation-token'
   },
-  changeAccountPassword: {
-    url: 'auth/change-account-password/user-email/:user-email/change-account-password-token/:confirmation-token'
+  changeLostAccountPassword: {
+    url: 'auth/change-account-password/user-email/:user-email/change-account-password-token/:change-account-password-token'
+  },
+  changePassword: {
+    url: 'auth/change-account-password/update-password'
   },
   lostPasswordMailingPage: {
     url: 'auth/lost-password/mailing'

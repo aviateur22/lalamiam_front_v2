@@ -29,7 +29,8 @@ export const titleResolver: ResolveFn<string> = (route, state) => {
         case frontendUrl.register.url: return addApplicationTitle(properties.registerPageTitle);
         case frontendUrl.professionalRegister.url: return addApplicationTitle(properties.registerProfessionalPageTitle);
         case frontendUrl.accountActivation.url: return addApplicationTitle(properties.activateAccountTitle);
-        case frontendUrl.changeAccountPassword.url: return addApplicationTitle(properties.changeAccountPasswordTitle);
+        case frontendUrl.changeLostAccountPassword.url: return addApplicationTitle(properties.changeAccountPasswordTitle);
+        case frontendUrl.changePassword.url: return addApplicationTitle(properties.changeAccountPasswordTitle);
         case frontendUrl.lostPasswordMailingPage.url: return addApplicationTitle(properties.lostPasswordMailingTitle);
         case frontendUrl.userHome.url: return addApplicationTitle(properties.userHomePageTitle);
         case frontendUrl.professionalRegisterConfirmation.url: return addApplicationTitle(properties.registerProfessionalConfirmationPageTitle);
