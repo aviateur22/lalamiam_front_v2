@@ -7,5 +7,6 @@ export default {
   professionalRegisterConfirmation: '/auth/register-confirm-by-professional',
   reinitializeLostPassword: '/auth/reinitialize-lost-password',
   csrf: '/auth/generate-csrf',
-  captcha: '/auth/generate-captcha'
+  captcha: '/auth/generate-captcha',
+  adminGetProfessionalToActivate: '/admin/professionals-to-activate'
 }

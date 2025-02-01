@@ -17,6 +17,8 @@ export class HeaderParameterService {
     LogUtility.log(HeaderParameterService.name, `backendPath ${request.url}`)
     switch(request.url) {
       case environment.api_base + backendUrl.appInit: return this.headerAppInitialize(request);
+
+      // Ajout CSRF TOKEN
       case environment.api_base + backendUrl.register:
       case environment.api_base + backendUrl.professionalRegister:
       case environment.api_base + backendUrl.professionalRegisterConfirmation:
@@ -25,6 +27,11 @@ export class HeaderParameterService {
       case environment.api_base + backendUrl.captcha:
       case environment.api_base + backendUrl.reinitializeLostPassword:
       case environment.api_base + backendUrl.csrf: return this.headerPostNoBearer(request)
+
+      // Admin
+      case environment.api_base + backendUrl.adminGetProfessionalToActivate: return this.headerPostWithBearerAndAdminToken(request)
+
+      // Aucune surchage sur les parmetre de la requete
       default: return request;
     }
   }
@@ -79,6 +86,25 @@ export class HeaderParameterService {
    * @returns HttpRequest
    */
   private headerPostNoBearer(request: HttpRequest<unknown>): HttpRequest<unknown>  {
+    LogUtility.log(HeaderParameterService.name, "headerPostNoBearer");
+      LogUtility.log(HeaderParameterService.name, `Token CSRF: ${localStorage.getItem(APP_CONSTANTS.POST_CSRF_TOKEN)?? ''}`)
+
+    return request.clone({
+      withCredentials: true,
+      setHeaders: {
+        'Post-Csrf-Token': localStorage.getItem(APP_CONSTANTS.POST_CSRF_TOKEN)?? '',
+        'Content-Type': 'application/json'
+      }
+    });
+  }
+
+  /**
+   * Header avec JWT + Token ADMIN
+   * @param request HttpRequest
+   * @returns HttpRequest
+   */
+  private headerPostWithBearerAndAdminToken(request: HttpRequest<unknown>): HttpRequest<unknown>  {
+
     LogUtility.log(HeaderParameterService.name, "headerPostNoBearer");
       LogUtility.log(HeaderParameterService.name, `Token CSRF: ${localStorage.getItem(APP_CONSTANTS.POST_CSRF_TOKEN)?? ''}`)
 

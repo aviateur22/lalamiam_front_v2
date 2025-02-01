@@ -1,0 +1,21 @@
+<div>
+  <div>
+    <div>
+      <h2>{{properties.activateProfessionalListTitle}}</h2>
+    </div>
+
+    <p></p>
+    <!-- List des professionnels-->
+    <ng-container *ngIf="(isLoading$ | async); else professionals">
+      chargement
+    </ng-container>
+
+    <ng-template #professionals>
+      <ul>
+        <li *ngFor="let professional of professionals$ | async; let index">
+          <app-professonal-to-activate-resume [professional]="professional"></app-professonal-to-activate-resume>
+        </li>
+      </ul>
+    </ng-template>
+  </div>
+</div>

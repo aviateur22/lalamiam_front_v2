@@ -4,7 +4,6 @@ import { ICaptchaDto, ILoginDto, ILoginResponseDto, ILogoutDto, IProfessionalReg
 import { catchError, firstValueFrom, map, Observable, of, tap, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import backendUrl from 'src/misc/backend.url';
-import { LogUtility } from 'src/utils/log.utility';
 import { Captcha, EmailState } from '../models/auth.model';
 import { captchaMapper } from '../models/map-to-model';
 

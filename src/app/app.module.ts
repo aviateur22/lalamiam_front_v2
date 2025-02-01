@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
@@ -9,6 +9,7 @@ import { AuthModule } from './module/auth/auth.module';
 import { InitModule } from './module/init/init.module';
 import { CommonModule } from './module/common/common.module';
 import { UserModule } from './module/user/user.module';
+import { AdminModule } from './module/admin/admin.module';
 
 import { AppComponent } from './app.component';
 
@@ -31,6 +32,7 @@ import { InitEffect } from 'src/store/effect';
     AuthModule,
     InitModule,
     UserModule,
+    AdminModule,
     CommonModule,
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([InitEffect]),
@@ -40,7 +42,8 @@ import { InitEffect } from 'src/store/effect';
   providers: [
     HeaderParameterService,
     {
-      provide: HTTP_INTERCEPTORS, useClass: HandlerHttpInterceptor,multi: true}
+      provide: HTTP_INTERCEPTORS, useClass: HandlerHttpInterceptor,multi: true
+    }
     ],
   bootstrap: [AppComponent]
 })

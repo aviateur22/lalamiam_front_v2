@@ -1,6 +1,10 @@
+import { Injectable } from "@angular/core";
 import { AuthService } from "./module/auth/services/auth.service";
 import { AppParamService } from "./module/init/services/app-param.service";
 
+@Injectable({
+  providedIn: "root"
+})
 export abstract class LoadCsrf {
 
    // Properiete

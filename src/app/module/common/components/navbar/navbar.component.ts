@@ -8,13 +8,15 @@ import frontendUrl from 'src/misc/frontend.url';
 import { StorageService } from '../../service/storage.service';
 import { AuthService } from 'src/app/module/auth/services/auth.service';
 import { ILogoutDto } from 'src/app/module/auth/models/auth-dto.';
+import { LoadCsrf } from 'src/app/load-csrf';
+import { AppParamService } from 'src/app/module/init/services/app-param.service';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent {
+export class NavbarComponent extends LoadCsrf {
   // Email de l'utilisateur si connecté
   userEmail$: Observable<EmailState | null>;
 
@@ -26,7 +28,8 @@ export class NavbarComponent {
   // Visibilité du menu
   isMenuVisible:boolean = false;
 
-  constructor(private _store: Store<IAppState>, private _storageService: StorageService, private _authService: AuthService){
+  constructor(private _store: Store<IAppState>, private _storageService: StorageService, private _authService: AuthService, private _appParam: AppParamService){
+    super(_authService, _appParam);
     this.userEmail$ = this._store.pipe(select(getUserEmail))
   }
 

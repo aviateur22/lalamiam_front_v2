@@ -1,4 +1,10 @@
 {
+  "navbarLogoutButton" : "Déconnexion",
+  "navbarLoginButton" : "Connexion",
+  "navbarLogoutQuestion" : "Etes vous sur de vouloir quitter?",
+  "navbarStayButton" : "Rester",
+  "navbarConfirmLogout" : "Quitter",
+
   "loginPageTitle": "{{main_page_title}} | Page de connexion",
   "changeAccountPasswordTitle": "{{main_page_title}} | Modification du mot de passe",
   "activateAccountTitle": "{{main_page_title}} | Activation de votre commpte",
@@ -11,6 +17,7 @@
   "errorPageTitle": "{{main_page_title}} | Erreur",
   "userHomePageTitle" : "{{main_page_title}} | Votre compte",
   "homePageTitle": "{{main_page_title}}",
+  "adminDisplayProfessionalToActivateListPageTitle" : "{{main_page_title}} | Comptes professionels a activer",
 
   "loginTitle" : "Connectez-vous",
   "loginEmail" : "E-mail",
@@ -48,12 +55,6 @@
   "lostPasswordEmail" : "Renseigner votre E-mail",
   "lostPasswordEmailError" : "Votre E-mail est obligatoire",
 
-  "navbarLogoutButton" : "Déconnexion",
-  "navbarLoginButton" : "Connexion",
-  "navbarLogoutQuestion" : "Etes vous sur de vouloir quitter?",
-  "navbarStayButton" : "Rester",
-  "navbarConfirmLogout" : "Quitter",
-
   "updatePassworditle" : "Réinitialisation du mot de passe",
   "updatePassword" : "Votre nouveau mot de passe",
   "updatePasswordMissing" : "Le mot de passe est obligatoire",
@@ -61,5 +62,9 @@
   "updateConfirmPassword" : "Confirmation du mot de passe",
   "updateConfirmPasswordMissing" : "La confirmation du mot de passe est obligatoire",
   "updateConfirmPasswordErrorNotEqual" : "Les 2 mots de passe ne sont pas identique",
-  "updatePasswordButton" : "Modifier le mot de passe"
+  "updatePasswordButton" : "Modifier le mot de passe",
+
+  "activateProfessionalListTitle": "Liste des comptes professionals à activater",
+  "activateProfessionalPosition": "Professional N°",
+   "activateProfessionalDate": "à"
 }

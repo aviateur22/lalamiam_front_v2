@@ -1,4 +1,10 @@
 {
+  "navbarLogoutButton" : "Logout",
+  "navbarLoginButton" : "Login",
+  "navbarLogoutQuestion" : "Are you sure to want to leave?",
+  "navbarStayButton" : "Stay",
+  "navbarConfirmLogout" : "Leave",
+
   "loginPageTitle": "{{main_page_title}} | Login page",
   "changeAccountPasswordTitle": "{{main_page_title}} | Update password account",
   "activateAccountTitle": "{{main_page_title}} | Account activation",
@@ -11,6 +17,7 @@
   "errorPageTitle": "{{main_page_title}} | Error",
   "userHomePageTitle" : "{{main_page_title}} | Your personnal account",
   "homePageTitle": "{{main_page_title}}",
+  "adminDisplayProfessionalToActivateListPageTitle" : "{{main_page_title}} | Professionals accounts to activate",
 
   "loginTitle" : "Login",
   "loginEmail" : "E-mail",
@@ -48,12 +55,6 @@
   "lostPasswordEmail" : "Your E-mail",
   "lostPasswordEmailError" : "Your E-mail is mandatory",
 
-  "navbarLogoutButton" : "Logout",
-  "navbarLoginButton" : "Login",
-  "navbarLogoutQuestion" : "Are you sure to want to leave?",
-  "navbarStayButton" : "Stay",
-  "navbarConfirmLogout" : "Leave",
-
   "updatePassworditle" : "Reinitialize my password",
   "updatePassword" : "Your new password",
   "updatePasswordMissing" : "The new password is mandatory",
@@ -61,6 +62,9 @@
   "updateConfirmPassword" : "Confirm your new password",
   "updateConfirmPasswordMissing" : "The confirm password is mandatory",
   "updateConfirmPasswordErrorNotEqual" : "Password and confirm password have to be the same",
-  "updatePasswordButton": "Change my password"
+  "updatePasswordButton": "Change my password",
 
+  "activateProfessionalListTitle": "Accounts professionals list to activate",
+  "activateProfessionalPosition": "Professional N°",
+  "activateProfessionalDate": "at"
 }

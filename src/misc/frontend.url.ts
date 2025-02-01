@@ -40,5 +40,12 @@ export default {
   },
   userHome: {
     url: 'users-page'
-  }
+  },
+  // ADMIN
+  adminDisplayProfessionalToActivatePage : {
+    url: 'admin/display-professional-to-activate'
+  },
+  adminDisplayProfessionalToActivateDetailPage : {
+    url: 'admin/display-professional-to-activate/detail/:professional-email'
+}
 }
