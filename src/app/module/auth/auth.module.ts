@@ -30,6 +30,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { ProfessionalRegisterConfirmationPageComponent } from './pages/professional-register-confirmation-page/professional-register-confirmation-page.component';
 import { ReinitializePasswordLostPageComponent } from './pages/reinitialize-password-lost-page/reinitialize-password-lost-page.component';
 import { ReinitializePasswordComponent } from './components/reinitialize-password/reinitialize-password.component';
+import { AddFileComponent } from './components/add-file/add-file.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { ReinitializePasswordComponent } from './components/reinitialize-passwor
     ProfessionalRegisterConfirmationPageComponent,
     ReinitializePasswordLostPageComponent,
     ReinitializePasswordComponent,
-    ShowOnFocusDirective
+    ShowOnFocusDirective,
+    AddFileComponent
   ],
   imports: [
     CommonModule,

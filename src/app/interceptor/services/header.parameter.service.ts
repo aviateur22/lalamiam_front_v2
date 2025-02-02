@@ -18,18 +18,20 @@ export class HeaderParameterService {
     switch(request.url) {
       case environment.api_base + backendUrl.appInit: return this.headerAppInitialize(request);
 
-      // Ajout CSRF TOKEN
+      // Ajout CSRF TOKEN - format JSON
       case environment.api_base + backendUrl.register:
-      case environment.api_base + backendUrl.professionalRegister:
       case environment.api_base + backendUrl.professionalRegisterConfirmation:
       case environment.api_base + backendUrl.login:
       case environment.api_base + backendUrl.logout:
       case environment.api_base + backendUrl.captcha:
       case environment.api_base + backendUrl.reinitializeLostPassword:
-      case environment.api_base + backendUrl.csrf: return this.headerPostNoBearer(request)
+      case environment.api_base + backendUrl.csrf: return this.headerPostNoBearer(request);
+
+       // Ajout CSRF TOKEN - format MULTIPART
+      case environment.api_base + backendUrl.professionalRegister: return this.headerPostNoBearerMulipartFormData(request);
 
       // Admin
-      case environment.api_base + backendUrl.adminGetProfessionalToActivate: return this.headerPostWithBearerAndAdminToken(request)
+      case environment.api_base + backendUrl.adminGetProfessionalToActivate: return this.headerPostWithBearerAndAdminToken(request);
 
       // Aucune surchage sur les parmetre de la requete
       default: return request;
@@ -94,6 +96,23 @@ export class HeaderParameterService {
       setHeaders: {
         'Post-Csrf-Token': localStorage.getItem(APP_CONSTANTS.POST_CSRF_TOKEN)?? '',
         'Content-Type': 'application/json'
+      }
+    });
+  }
+
+  /**
+   * Header sans Token JWT et mulipartformdata pour l'envoie de document
+   * @param request HttpRequest
+   * @returns HttpRequest
+   */
+  private headerPostNoBearerMulipartFormData(request: HttpRequest<unknown>): HttpRequest<unknown>  {
+    LogUtility.log(HeaderParameterService.name, "headerPostNoBearer");
+      LogUtility.log(HeaderParameterService.name, `Token CSRF: ${localStorage.getItem(APP_CONSTANTS.POST_CSRF_TOKEN)?? ''}`)
+
+    return request.clone({
+      withCredentials: true,
+      setHeaders: {
+        'Post-Csrf-Token': localStorage.getItem(APP_CONSTANTS.POST_CSRF_TOKEN)?? ''
       }
     });
   }

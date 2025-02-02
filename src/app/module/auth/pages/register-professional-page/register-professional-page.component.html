@@ -1,34 +1,49 @@
-<p>register-professional-page works!</p>
-<form [formGroup]="registerFG" (submit)="register()">
+<div>
   <div>
-    <label for="firstName">{{properties.registerFirstName}}</label>
-    <input id="firstName" formControlName="firstName"  type="text">
-    <!--Message erreur-->
-    <div *ngIf="registerFG.get('firstName')?.touched && registerFG.get('firstName')?.errors?.['required']">
-      <p-message class="p-message" severity="error" [text]="properties.registerFirstNameError" ></p-message>
+    <div>
+      <h2>{{properties.registerProfessionalTitle}}</h2>
     </div>
-  </div>
-  <div>
-    <label for="lastName">{{properties.registerLastName}}</label>
-    <input id="lastName" formControlName="lastName"  type="text">
-    <!--Message erreur-->
-    <div *ngIf="registerFG.get('lastName')?.touched && registerFG.get('lastName')?.errors?.['required']">
-      <p-message class="p-message" severity="error" [text]="properties.registerLastNameError" ></p-message>
-    </div>
-  </div>
-  <div>
-    <label for="phone">{{properties.registerPhone}}</label>
-    <input id="phone" formControlName="phone"  type="text">
-    <!--Message erreur-->
-    <div *ngIf="registerFG.get('phone')?.touched && registerFG.get('phone')?.errors?.['required']">
-      <p-message class="p-message" severity="error" [text]="properties.registerPhoneError" ></p-message>
-    </div>
-  </div>
+    <form [formGroup]="registerFG" (submit)="register()">
+      <div>
+        <label for="firstName">{{properties.registerFirstName}}</label>
+        <input id="firstName" formControlName="firstName"  type="text">
+        <!--Message erreur-->
+        <div *ngIf="registerFG.get('firstName')?.touched && registerFG.get('firstName')?.errors?.['required']">
+          <p-message class="p-message" severity="error" [text]="properties.registerFirstNameError" ></p-message>
+        </div>
+      </div>
+      <div>
+        <label for="lastName">{{properties.registerLastName}}</label>
+        <input id="lastName" formControlName="lastName"  type="text">
+        <!--Message erreur-->
+        <div *ngIf="registerFG.get('lastName')?.touched && registerFG.get('lastName')?.errors?.['required']">
+          <p-message class="p-message" severity="error" [text]="properties.registerLastNameError" ></p-message>
+        </div>
+      </div>
+      <div>
+        <label for="phone">{{properties.registerPhone}}</label>
+        <input id="phone" formControlName="phone"  type="text">
+        <!--Message erreur-->
+        <div *ngIf="registerFG.get('phone')?.touched && registerFG.get('phone')?.errors?.['required']">
+          <p-message class="p-message" severity="error" [text]="properties.registerPhoneError" ></p-message>
+        </div>
+      </div>
 
-  <!-- Données de base pour s'enregistrer -->
-  <app-register [properties]=properties [fg]="registerFG"></app-register>
 
-  <div>
-    <input [disabled]="" type="submit" [value]="properties.registerButton">
+
+      <!-- Données de base pour s'enregistrer -->
+      <app-register [properties]=properties [fg]="registerFG"></app-register>
+
+      <app-add-file [fg]="registerFG" inputFileFormControlName="file1" (selectedFileEmitter)="onFile1Selected($event)" [properties]="properties"></app-add-file>
+      <app-add-file [fg]="registerFG" inputFileFormControlName="file2" (selectedFileEmitter)="onFile2Selected($event)" [properties]="properties"></app-add-file>
+
+
+      <!--captcha-->
+      <app-captcha [fg]="registerFG"></app-captcha>
+
+      <div>
+        <input [disabled]="" type="submit" [value]="properties.registerButton">
+      </div>
+    </form>
   </div>
-</form>
+</div>

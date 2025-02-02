@@ -29,6 +29,7 @@
   "loginLostPasswordRedirection": "I lost my password",
 
   "registerTitle" : "Create an account",
+  "registerProfessionalTitle" : "Create a professional account",
   "registerEmail" : "Your E-mail",
   "registerEmailError": "Your E-mail is mandatory",
   "registerPassword": "Your password",
@@ -43,6 +44,7 @@
   "registerPhone": "Your phone number",
   "registerLastNameError": "Your last name is mandatory",
   "registerFirstNameError": "Your first name is mandatory",
+  "registerFileRequired" : "File is required",
   "registerPhoneError": "Your phone number is mandatory",
   "registerButton": "Continue",
 

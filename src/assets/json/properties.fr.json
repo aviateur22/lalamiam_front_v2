@@ -29,6 +29,7 @@
   "loginLostPasswordRedirection": "J'ai oublié mon mot de passe",
 
   "registerTitle" : "Créer un compte",
+  "registerProfessionalTitle" : "Créer un compte pour professionnel",
   "registerEmail" : "Votre E-mail",
   "registerEmailError": "Votre E-mail est obligatoire",
   "registerPassword": "Votre mot de passe",
@@ -43,6 +44,7 @@
   "registerPhone": "Votre numéro de téléphone",
   "registerLastNameError": "Votre nom de famille est obligatoire",
   "registerFirstNameError": "Votre prénom est obligatoire",
+  "registerFileRequired" : "Document obligatoire",
   "registerPhoneError": "Votre numéro de téléphone est obligatoire",
   "registerButton": "Contineur",
 

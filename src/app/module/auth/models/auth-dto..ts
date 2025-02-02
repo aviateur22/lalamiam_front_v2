@@ -38,7 +38,9 @@ export interface IRegisterDto {
 export interface IProfessionalRegisterDto extends IRegisterDto {
   lastName: string,
   firstName: string,
-  phone: string
+  phone: string,
+  file1: File,
+  file2: File
 }
 
 export interface IRegisterResponseDto extends IResponseDto {

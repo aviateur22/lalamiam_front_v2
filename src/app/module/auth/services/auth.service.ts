@@ -77,8 +77,12 @@ export class AuthService {
    * Création d'un compte professionel sans qua le personne ne soit déja client
    * @param professionalRegisterDto
    */
-  professionalRegister(professionalRegisterDto: IProfessionalRegisterDto): Observable<IRegisterResponseDto> {
-    return this._http.post<ILoginResponseDto>(this.apiPath(backendUrl.professionalRegister), professionalRegisterDto).pipe(
+  professionalRegister(professionalRegisterDto: IProfessionalRegisterDto, file1: File, file2: File): Observable<IRegisterResponseDto> {
+
+    // Convertion données en formData
+    const formData: FormData = this.getFormData(professionalRegisterDto, file1, file2);
+
+    return this._http.post<ILoginResponseDto>(this.apiPath(backendUrl.professionalRegister), formData).pipe(
       map(registerResponse=>{
         this._store.dispatch(FlashMessageAction.addMessageToList({ flashMessage: new FlashMessage(registerResponse.responseMessage, false)}))
         return registerResponse
@@ -150,5 +154,29 @@ export class AuthService {
 
   private apiPath(endPoint: string): string {
     return environment.api_base + endPoint
+  }
+
+  /**
+   * FormData
+   * @param professionalRegisterDto
+   * @param file1
+   * @param file2
+   * @returns
+   */
+  private getFormData(professionalRegisterDto: IProfessionalRegisterDto, file1: File, file2: File): FormData {
+    const formData = new FormData();
+
+    formData.append('email', professionalRegisterDto.email);
+    formData.append('firstName', professionalRegisterDto.firstName);
+    formData.append('lastName', professionalRegisterDto.lastName);
+    formData.append('nickname', professionalRegisterDto.nickname);
+    formData.append('password', professionalRegisterDto.password);
+    formData.append('phone', professionalRegisterDto.phone);
+    formData.append('file1', file1);
+    formData.append('file2', file2??new Blob(), file2 !=null ? file2.name : 'empty-file');
+    formData.append('userCaptchaResponse.clientResponse', professionalRegisterDto.userCaptchaResponse.clientResponse);
+    formData.append('userCaptchaResponse.captchaResponseIdEncrypt', professionalRegisterDto.userCaptchaResponse.captchaResponseIdEncrypt);
+
+    return formData;
   }
 }

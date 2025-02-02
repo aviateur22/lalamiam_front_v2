@@ -1,0 +1,50 @@
+<div [formGroup]="fg" >
+  <div>
+    <input [formControlName]=inputFileFormControlName #inputFile accept=".pdf, .jpg, .jpeg, .png" type="file" (change)="loadSelectedFile(inputFile?.files?.[0])" style="display:none;" />
+
+    <!--Preview image ou icone PDF - titre document -->
+    <div>
+      <!-- Preview image si fichier type image selectionné-->
+      <ng-container *ngIf="isFileSelected && isFileOfImageType">
+        <img [src]="previewFileFileBase64" alt="productImage.fileName">
+      </ng-container>
+
+      <!--Image par default si document pdf -->
+      <ng-container *ngIf="isFileSelected && isFilePdfType">
+        <div>
+          <svg width="359" height="398" viewBox="0 0 359 398" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g filter="url(#filter0_d_1_2)">
+            <rect x="6" y="2" width="347" height="386" rx="10" fill="#EC2525"/>
+            <path d="M80.5 249V179.182H110.636C115.818 179.182 120.352 180.205 124.239 182.25C128.125 184.295 131.148 187.17 133.307 190.875C135.466 194.58 136.545 198.909 136.545 203.864C136.545 208.864 135.432 213.193 133.205 216.852C131 220.511 127.898 223.33 123.898 225.307C119.92 227.284 115.273 228.273 109.955 228.273H91.9545V213.545H106.136C108.364 213.545 110.261 213.159 111.83 212.386C113.42 211.591 114.636 210.466 115.477 209.011C116.341 207.557 116.773 205.841 116.773 203.864C116.773 201.864 116.341 200.159 115.477 198.75C114.636 197.318 113.42 196.227 111.83 195.477C110.261 194.705 108.364 194.318 106.136 194.318H99.4545V249H80.5ZM170.364 249H143.5V179.182H170.091C177.273 179.182 183.477 180.58 188.705 183.375C193.955 186.148 198 190.148 200.841 195.375C203.705 200.58 205.136 206.818 205.136 214.091C205.136 221.364 203.716 227.614 200.875 232.841C198.034 238.045 194.011 242.045 188.807 244.841C183.602 247.614 177.455 249 170.364 249ZM162.455 232.909H169.682C173.136 232.909 176.08 232.352 178.511 231.239C180.966 230.125 182.83 228.205 184.102 225.477C185.398 222.75 186.045 218.955 186.045 214.091C186.045 209.227 185.386 205.432 184.068 202.705C182.773 199.977 180.864 198.057 178.341 196.943C175.841 195.83 172.773 195.273 169.136 195.273H162.455V232.909ZM213.906 249V179.182H262.997V194.455H232.861V206.455H259.997V221.727H232.861V249H213.906Z" fill="white"/>
+            </g>
+            <defs>
+            <filter id="filter0_d_1_2" x="0" y="0" width="359" height="398" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+            <feMorphology radius="2" operator="dilate" in="SourceAlpha" result="effect1_dropShadow_1_2"/>
+            <feOffset dy="4"/>
+            <feGaussianBlur stdDeviation="2"/>
+            <feComposite in2="hardAlpha" operator="out"/>
+            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.37 0"/>
+            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1_2"/>
+            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1_2" result="shape"/>
+            </filter>
+            </defs>
+          </svg>
+        </div>
+      </ng-container>
+
+      <!--tite du fichhier-->
+      <p>{{fileTitle}}</p>
+    </div>
+   <!--Message erreur-->
+   <div *ngIf="fg.get(inputFileFormControlName)?.touched && fg.get(inputFileFormControlName)?.errors?.['required']">
+    <p-message class="p-message" severity="error" [text]="properties.registerFileRequired" ></p-message>
+  </div>
+  </div>
+
+  <!--Button container-->
+  <div class="button__container">
+    <input class="button secondary" (click)="inputFile.click()" type="button" value="sélectionner une image">
+   </div>
+</div>
