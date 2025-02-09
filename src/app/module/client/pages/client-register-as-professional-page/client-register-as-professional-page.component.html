@@ -4,17 +4,25 @@
       <h2>{{properties.registerProfessionalTitle}}</h2>
     </div>
     <form [formGroup]="registerFG" (submit)="register()">
-      <!-- Données de base pour s'enregistrer -->
-      <app-register [properties]=properties [fg]="registerFG"></app-register>
 
       <!--Données supplémentaire pour inscription professionnel-->
       <app-professional-register [properties]="properties" [fg]="registerFG"></app-professional-register>
 
       <!--Fichier 1-->
-      <app-add-file [fg]="registerFG" inputFileFormControlName="file1" (selectedFileEmitter)="onFile1Selected($event)" [properties]="properties"></app-add-file>
+      <app-add-file
+        [fg]="registerFG"
+        inputFileFormControlName="file1"
+        (selectedFileEmitter)="onFile1Selected($event)"
+        [properties]="properties">
+      </app-add-file>
 
       <!--Fichier 2-->
-      <app-add-file [fg]="registerFG" inputFileFormControlName="file2" (selectedFileEmitter)="onFile2Selected($event)" [properties]="properties"></app-add-file>
+      <app-add-file
+        [fg]="registerFG"
+        inputFileFormControlName="file2"
+        (selectedFileEmitter)="onFile2Selected($event)"
+        [properties]="properties">
+      </app-add-file>
 
       <!--captcha-->
       <app-captcha [fg]="registerFG"></app-captcha>

@@ -1,4 +1,5 @@
-import { IResponseDto } from "src/app/model/response-dto";
+import { IUserCaptchaResponseDto } from "src/app/model/captcha.dto";
+import { IResponseDto } from "src/app/model/response.dto";
 
 export interface ILoginDto {
   email: string,
@@ -23,16 +24,11 @@ export interface IProfessionalRegisterConfirmationDto {
   urlToken: string
 }
 
-export interface IUserCaptchaResponseDto {
-  clientResponse: string,
-  captchaResponseIdEncrypt: string
-}
-
 export interface IRegisterDto {
   email: string,
   password: string,
   nickname: string,
-  userCaptchaResponse: IUserCaptchaResponseDto
+  captchaResponseDto: IUserCaptchaResponseDto
 }
 
 export interface IProfessionalRegisterDto extends IRegisterDto {
@@ -45,17 +41,6 @@ export interface IProfessionalRegisterDto extends IRegisterDto {
 
 export interface IRegisterResponseDto extends IResponseDto {
 
-}
-
-export interface ICaptchaDto {
-  captchaTitle: string,
-  captchaQuestionImageBase64: ICaptchaImageDto,
-  captchaResponseIdEncrypt: string
-}
-
-export interface ICaptchaImageDto {
-  mimeType: string,
-  base64Format: string,
 }
 
 export interface IReinitializeLostPasswordDto {

@@ -8,5 +8,7 @@ export default {
   reinitializeLostPassword: '/auth/reinitialize-lost-password',
   csrf: '/auth/generate-csrf',
   captcha: '/auth/generate-captcha',
-  adminGetProfessionalToActivate: '/admin/professionals-to-activate'
+  adminGetProfessionalToActivate: '/admin/professionals-to-activate',
+  clientRegisterAsProfessional: '/client/register-as-professioanl'
+
 }

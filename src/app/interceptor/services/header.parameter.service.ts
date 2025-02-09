@@ -4,6 +4,7 @@ import { APP_CONSTANTS } from "../../../misc/constant";
 import { LogUtility } from "src/utils/log.utility";
 import { Injectable } from "@angular/core";
 import { environment } from "src/environments/environment";
+import { StorageService } from "src/app/module/common/service/storage.service";
 
 /**
  * Mise à jour des headers a envoyer à l'API en fonction du API path
@@ -12,6 +13,8 @@ import { environment } from "src/environments/environment";
   providedIn: "root"
 })
 export class HeaderParameterService {
+
+  public constructor(private _storageService: StorageService){}
 
   set(request: HttpRequest<unknown>): HttpRequest<unknown> {
     LogUtility.log(HeaderParameterService.name, `backendPath ${request.url}`)
@@ -25,7 +28,8 @@ export class HeaderParameterService {
       case environment.api_base + backendUrl.logout:
       case environment.api_base + backendUrl.captcha:
       case environment.api_base + backendUrl.reinitializeLostPassword:
-      case environment.api_base + backendUrl.csrf: return this.headerPostNoBearer(request);
+      case environment.api_base + backendUrl.csrf: return this.headerPostNoBearer(request)
+      case environment.api_base + backendUrl.clientRegisterAsProfessional: return this.headerPostWithBearer(request)
 
        // Ajout CSRF TOKEN - format MULTIPART
       case environment.api_base + backendUrl.professionalRegister: return this.headerPostNoBearerMulipartFormData(request);
@@ -63,7 +67,7 @@ export class HeaderParameterService {
   private headerPostWithBearer(request: HttpRequest<unknown>): HttpRequest<unknown>  {
     let token: string | undefined = undefined;
 
-    const user = localStorage.getItem('user');
+    const user = this._storageService.getItem('user');
     LogUtility.log(HeaderParameterService.name, `Données utilisateur : ${user}`)
 
     if(user) {

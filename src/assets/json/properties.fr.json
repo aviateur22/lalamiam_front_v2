@@ -1,6 +1,9 @@
 {
   "navbarLogoutButton" : "Déconnexion",
   "navbarLoginButton" : "Connexion",
+  "navbarProfesionalRegisterButton" : "Créer un compte professioanel",
+  "navbarUserRegisterButton" : "Créer un compte client",
+  "navbarClientRegisterAsProfessionalButton" : "Créer un compte pour professionnel",
   "navbarLogoutQuestion" : "Etes vous sur de vouloir quitter?",
   "navbarStayButton" : "Rester",
   "navbarConfirmLogout" : "Quitter",
@@ -45,6 +48,8 @@
   "registerLastNameError": "Votre nom de famille est obligatoire",
   "registerFirstNameError": "Votre prénom est obligatoire",
   "registerFileRequired" : "Document obligatoire",
+  "registerFileExplanation" : "Document présentant le statut juridique de votre entreprise au format PDF",
+  "registerFileButtonSelection" : "Sélection du document",
   "registerPhoneError": "Votre numéro de téléphone est obligatoire",
   "registerButton": "Contineur",
 

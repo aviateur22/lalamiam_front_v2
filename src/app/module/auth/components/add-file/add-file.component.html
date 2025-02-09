@@ -1,6 +1,12 @@
 <div [formGroup]="fg" >
   <div>
-    <input [formControlName]=inputFileFormControlName #inputFile accept=".pdf, .jpg, .jpeg, .png" type="file" (change)="loadSelectedFile(inputFile?.files?.[0])" style="display:none;" />
+    <p>{{properties.registerFileExplanation}}</p>
+    <input
+    [formControlName]=inputFileFormControlName
+    #inputFile accept=".pdf, .jpg, .jpeg, .png"
+    type="file"
+    (change)="loadSelectedFile(inputFile?.files?.[0])"
+    style="display:none;" />
 
     <!--Preview image ou icone PDF - titre document -->
     <div>
@@ -45,6 +51,6 @@
 
   <!--Button container-->
   <div class="button__container">
-    <input class="button secondary" (click)="inputFile.click()" type="button" value="sélectionner une image">
+    <input class="button secondary" (click)="inputFile.click()" type="button" [value]="properties.registerFileButtonSelection">
    </div>
 </div>

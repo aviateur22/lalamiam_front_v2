@@ -1,3 +1,4 @@
+<!--Données de base nécessaire a une inscription-->
 <div [formGroup]="fg">
   <div>
     <label for="email">{{properties.registerEmail}}</label>
@@ -15,9 +16,20 @@
       <p-message class="p-message" severity="error" [text]="properties.registerNickNameError" ></p-message>
     </div>
   </div>
-  <div>
+  <div class="relative">
     <label for="password">{{properties.registerPassword}}</label>
-    <input id="password" formControlName="password"  type="password">
+    <p-password
+      [appShowOnFocus]="passwordTemplate"
+      id="password"
+      aria-describedby="password-help"
+      [feedback]="false"
+      [toggleMask]="true"
+      formControlName="password">
+      <!--Aide à la saisie du mot de passe-->
+      <ng-template #passwordTemplate>
+        <app-password-helper></app-password-helper>
+      </ng-template>
+    </p-password>
     <!--Message erreur-->
     <div *ngIf="fg.get('password')?.touched && fg.get('password')?.errors?.['required']">
       <p-message class="p-message" severity="error" [text]="properties.registerPasswordError" ></p-message>

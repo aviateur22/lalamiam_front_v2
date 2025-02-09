@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { FlashMessage } from '../../../model/common.model';
 import { select, Store } from '@ngrx/store';
 import { IAppState } from 'src/store/state';
-import { getFlashMessages } from '../../../store/flash-message.selector';
+import { getFlashMessages } from '../../../store/selector';
 
 @Component({
   selector: 'app-flash-message-container',

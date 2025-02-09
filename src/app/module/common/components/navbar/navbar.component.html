@@ -5,12 +5,41 @@
       <li class="right">
         <button type="button" (click)="displayLogoutOverlay()">{{ properties.navbarLogoutButton }}</button>
       </li>
+
+      <ng-container *ngIf="(user$ | async) as user">
+        <p >{{ user.isAuthenticated }}</p>
+        <ng-container *ngIf="user.isAuthenticated">
+          <!-- Creation compte pro pour un client -->
+          <li class="right" routerLinkActive="active">
+           <a class="link" [routerLink]=clientCreateProfessionalAccountLink>
+             <i class="pi pi-user"></i>
+             {{ properties.navbarClientRegisterAsProfessionalButton }}
+           </a>
+         </li>
+        </ng-container>
+      </ng-container>
+
     </ng-container>
     <ng-template #elseBlock>
+       <!-- Login -->
       <li class="right" routerLinkActive="active">
         <a class="link" [routerLink]=loginLink>
           <i class="pi pi-user"></i>
           {{ properties.navbarLoginButton }}
+        </a>
+      </li>
+      <!-- Création compte pro -->
+      <li class="right" routerLinkActive="active">
+        <a class="link" [routerLink]=createProfessionalLink>
+          <i class="pi pi-user"></i>
+          {{ properties.navbarProfesionalRegisterButton }}
+        </a>
+      </li>
+      <!-- Création compte client -->
+      <li class="right" routerLinkActive="active">
+        <a class="link" [routerLink]=createClientLink>
+          <i class="pi pi-user"></i>
+          {{ properties.navbarUserRegisterButton }}
         </a>
       </li>
     </ng-template>

@@ -1,8 +1,9 @@
 import { Component, HostListener } from '@angular/core';
 import { select, Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { IAppState } from 'src/store/state';
 import { getUserEmail } from 'src/app/module/auth/store/selector';
+import { getUser } from '../../store/selector';
 import { EmailState } from 'src/app/module/auth/models/auth.model';
 import frontendUrl from 'src/misc/frontend.url';
 import { StorageService } from '../../service/storage.service';
@@ -10,6 +11,8 @@ import { AuthService } from 'src/app/module/auth/services/auth.service';
 import { ILogoutDto } from 'src/app/module/auth/models/auth-dto.';
 import { LoadCsrf } from 'src/app/load-csrf';
 import { AppParamService } from 'src/app/module/init/services/app-param.service';
+import { UserStatusService as UserStatusService } from '../../service/user.status.service';
+import { UserRoles } from '../../model/common.model';
 
 @Component({
   selector: 'app-navbar',
@@ -20,7 +23,12 @@ export class NavbarComponent extends LoadCsrf {
   // Email de l'utilisateur si connecté
   userEmail$: Observable<EmailState | null>;
 
+  user$: Observable<UserRoles | null>;
+
   loginLink = `${frontendUrl.login.url}`;
+  createClientLink = `${frontendUrl.register.url}`;
+  createProfessionalLink = `${frontendUrl.professionalRegister.url}`;
+  clientCreateProfessionalAccountLink = `${frontendUrl.userRegisterAsProfessional.url}`
 
   // Visibilité de la fenetre de confirmation de logout
   isLogoutVisible: boolean = false;
@@ -28,9 +36,28 @@ export class NavbarComponent extends LoadCsrf {
   // Visibilité du menu
   isMenuVisible:boolean = false;
 
-  constructor(private _store: Store<IAppState>, private _storageService: StorageService, private _authService: AuthService, private _appParam: AppParamService){
+  constructor(
+    private _store: Store<IAppState>,
+    private _storageService: StorageService,
+    private _authService: AuthService,
+    private _appParam: AppParamService,
+    private _userStatusService: UserStatusService){
     super(_authService, _appParam);
-    this.userEmail$ = this._store.pipe(select(getUserEmail))
+
+    // Store
+    this.user$ = this._store.pipe(select(getUser));
+    this.userEmail$ = this._store.pipe(select(getUserEmail));
+  }
+
+  ngOnInit() {
+    // Récupération de l'adresse email
+    this.userEmail$.pipe(
+      map(emailState => emailState?.email)
+    ).subscribe(email => {
+      if (email) {
+        this.clientCreateProfessionalAccountLink = `/auth/user-email/${email}/user-create-professional-account`;
+      }
+    });
   }
 
   /**

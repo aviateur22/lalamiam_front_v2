@@ -8,7 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AuthModule } from './module/auth/auth.module';
 import { InitModule } from './module/init/init.module';
 import { CommonModule } from './module/common/common.module';
-import { UserModule } from './module/user/user.module';
+import { UserModule } from './module/client/user.module';
 import { AdminModule } from './module/admin/admin.module';
 
 import { AppComponent } from './app.component';

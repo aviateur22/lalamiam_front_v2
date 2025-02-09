@@ -22,7 +22,11 @@ export class RegisterPageComponent extends LoadCsrf {
       captchaResponse: ['', Validators.required]
     });
 
-  constructor(private _authService: AuthService,private _fb: FormBuilder, private _appParamService: AppParamService, private _storageService: StorageService) {
+  constructor(
+    private _authService: AuthService,
+    private _fb: FormBuilder,
+    private _appParamService: AppParamService,
+     private _storageService: StorageService) {
     super(_authService, _appParamService);
   }
 
@@ -34,7 +38,7 @@ export class RegisterPageComponent extends LoadCsrf {
       email: this.registerFG.get('email')?.value,
       password: this.registerFG.get('password')?.value,
       nickname: this.registerFG.get('nickname')?.value,
-      userCaptchaResponse: {
+      captchaResponseDto: {
         clientResponse: this.registerFG.get('captchaResponse')?.value,
         captchaResponseIdEncrypt: this._storageService.getItem(APP_CONSTANTS.CAPTCHA_EXPECTED_RESPONSE),
       }

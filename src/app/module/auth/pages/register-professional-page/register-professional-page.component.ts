@@ -40,20 +40,17 @@ export class RegisterProfessionalPageComponent extends LoadCsrf {
   }
 
   onFile1Selected(file: File) {
-    console.log(file);
     this.file1 = file;
   }
 
   onFile2Selected(file: File) {
     this.file2 = file;
-    console.log(file);
   }
 
 
    register() {
       if(!this.registerFG.valid)
         return this.registerFG.markAllAsTouched();
-
 
       const register: IProfessionalRegisterDto = {
         email: this.registerFG.get('email')?.value,
@@ -64,7 +61,7 @@ export class RegisterProfessionalPageComponent extends LoadCsrf {
         nickname: this.registerFG.get('nickname')?.value,
         file1: this.registerFG.get('file1')?.value,
         file2: this.registerFG.get('file2')?.value,
-        userCaptchaResponse: {
+        captchaResponseDto: {
           captchaResponseIdEncrypt: this._storageService.getItem(APP_CONSTANTS.CAPTCHA_EXPECTED_RESPONSE),
           clientResponse: this.registerFG.get('captchaResponse')?.value
         }

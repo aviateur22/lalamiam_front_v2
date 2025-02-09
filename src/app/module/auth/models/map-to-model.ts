@@ -1,5 +1,7 @@
-import { ICaptchaDto, ICaptchaImageDto } from "./auth-dto.";
-import { Captcha, CaptchaImage } from "./auth.model";
+
+import { ICaptchaDto, ICaptchaImageDto } from "src/app/model/captcha.dto";
+import { Captcha, CaptchaImage } from "src/app/model/captcha.model";
+
 
 export function captchaMapper(captchaDto: ICaptchaDto, captchaImage: ICaptchaImageDto) {
   var captchaImageModel = captchaImageMapper(captchaImage);

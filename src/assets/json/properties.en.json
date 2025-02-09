@@ -1,6 +1,9 @@
 {
   "navbarLogoutButton" : "Logout",
   "navbarLoginButton" : "Login",
+  "navbarProfesionalRegisterButton" : "Created a professional account",
+  "navbarUserRegisterButton" : "Create a user account",
+  "navbarClientRegisterAsProfessionalButton" : "Create a professional account",
   "navbarLogoutQuestion" : "Are you sure to want to leave?",
   "navbarStayButton" : "Stay",
   "navbarConfirmLogout" : "Leave",
@@ -45,6 +48,8 @@
   "registerLastNameError": "Your last name is mandatory",
   "registerFirstNameError": "Your first name is mandatory",
   "registerFileRequired" : "File is required",
+  "registerFileExplanation" : "Document presenting the legal status of your company in PDF format",
+  "registerFileButtonSelection" : "Document selection",
   "registerPhoneError": "Your phone number is mandatory",
   "registerButton": "Continue",
 

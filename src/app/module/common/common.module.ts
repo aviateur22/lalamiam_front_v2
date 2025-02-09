@@ -8,7 +8,8 @@ import { NotFoundPageComponent } from './page/not-found-page/not-found-page.comp
 import { NavbarComponent } from './components/navbar/navbar.component';
 
 import { StorageService } from './service/storage.service';
-import { reducers as flashMessageReducers} from './store/flash-message.reducer'
+import { UserStatusService } from './service/user.status.service';
+import { reducers as commonReducers} from './store/reducer'
 import { CommonEffect } from './store/effect';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
@@ -30,7 +31,7 @@ import { MessageModule } from 'primeng/message';
     MessageModule,
     AngularCommonModule,
     RouterModule.forChild(commonRooting),
-    StoreModule.forFeature('flashMessageState', flashMessageReducers),
+    StoreModule.forFeature('commonState', commonReducers),
     EffectsModule.forFeature([
       CommonEffect
     ])
@@ -38,7 +39,8 @@ import { MessageModule } from 'primeng/message';
     FlashMessageContainerComponent,
     NavbarComponent
   ], providers: [
-    StorageService
+    StorageService,
+    UserStatusService
   ]
 })
 export class CommonModule { }

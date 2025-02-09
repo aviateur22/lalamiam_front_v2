@@ -8,6 +8,7 @@ import frontendLinkUrl from "src/misc/frontend.url";
 import { AccountActivationPageComponent } from "../pages/account-activation-page/account-activation-page.component";
 import { ChangePasswordPageComponent } from "../pages/change-password-page/change-password-page.component";
 import { ReinitializePasswordLostPageComponent } from "../pages/reinitialize-password-lost-page/reinitialize-password-lost-page.component";
+import { UserRegisterAsProfessionalComponent } from "../pages/user-register-as-professional/user-register-as-professional.component";
 import { LostPasswordPageComponent } from "../pages/lost-password-page/lost-password-page.component";
 import { titleResolver } from "src/app/module/common/service/title.resolver";
 import { RegisterProfessionalPageComponent } from "../pages/register-professional-page/register-professional-page.component";

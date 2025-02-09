@@ -1,0 +1,27 @@
+<!--Donnéés supplémentaire pour l'enregistrement d'un professionnel-->
+<div [formGroup]="fg">
+  <div>
+    <label for="firstName">{{properties.registerFirstName}}</label>
+    <input id="firstName" formControlName="firstName"  type="text">
+    <!--Message erreur-->
+    <div *ngIf="fg.get('firstName')?.touched && fg.get('firstName')?.errors?.['required']">
+      <p-message class="p-message" severity="error" [text]="properties.registerFirstNameError" ></p-message>
+    </div>
+  </div>
+  <div>
+    <label for="lastName">{{properties.registerLastName}}</label>
+    <input id="lastName" formControlName="lastName"  type="text">
+    <!--Message erreur-->
+    <div *ngIf="fg.get('lastName')?.touched && fg.get('lastName')?.errors?.['required']">
+      <p-message class="p-message" severity="error" [text]="properties.registerLastNameError" ></p-message>
+    </div>
+  </div>
+  <div>
+    <label for="phone">{{properties.registerPhone}}</label>
+    <input id="phone" formControlName="phone"  type="text">
+    <!--Message erreur-->
+    <div *ngIf="fg.get('phone')?.touched && fg.get('phone')?.errors?.['required']">
+      <p-message class="p-message" severity="error" [text]="properties.registerPhoneError" ></p-message>
+    </div>
+  </div>
+</div>

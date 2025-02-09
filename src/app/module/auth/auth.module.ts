@@ -31,6 +31,8 @@ import { ProfessionalRegisterConfirmationPageComponent } from './pages/professio
 import { ReinitializePasswordLostPageComponent } from './pages/reinitialize-password-lost-page/reinitialize-password-lost-page.component';
 import { ReinitializePasswordComponent } from './components/reinitialize-password/reinitialize-password.component';
 import { AddFileComponent } from './components/add-file/add-file.component';
+import { PasswordHelperComponent } from './components/password-helper/password-helper.component';
+import { ProfessionalRegisterComponent } from './components/professional-register/professional-register.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,9 @@ import { AddFileComponent } from './components/add-file/add-file.component';
     ReinitializePasswordLostPageComponent,
     ReinitializePasswordComponent,
     ShowOnFocusDirective,
-    AddFileComponent
+    AddFileComponent,
+    PasswordHelperComponent,
+    ProfessionalRegisterComponent
   ],
   imports: [
     CommonModule,
@@ -66,6 +70,11 @@ import { AddFileComponent } from './components/add-file/add-file.component';
     DividerModule,
     SkeletonModule
   ],
-  providers: [AuthService]
+  providers: [AuthService],
+  exports: [
+    AddFileComponent,
+    ProfessionalRegisterComponent,
+    CaptchaComponent
+  ]
 })
 export class AuthModule { }

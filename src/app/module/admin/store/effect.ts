@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import * as AdminAction from "./action";
-import * as FlashMessageAction from "./../../common/store/flash-message.action";
+import * as FlashMessageAction from "../../common/store/action";
 import { AdminService } from "../services/admin.service";
 import { catchError, map, mergeMap, of } from "rxjs";
 import { Store } from "@ngrx/store";
